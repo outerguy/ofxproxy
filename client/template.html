@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Language" content="ja-JP" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Last-Modified" content="Thu, 01 Jan 1970 00:00:00 GMT" />
+<meta name="description" content="OFXProxyは、対応金融機関の口座情報をOFXファイルとしてダウンロードできるサービスです。生成した電子明細をOFX対応マネー管理ソフトに取り込めます。" />
+<meta name="keywords" content="OFXProxy,金融機関,残高照会,OFX,Open Financial Exchange" />
+<meta name="viewport" content="width=device-width" />
+<meta name="msapplication-navbutton-color" content="#FF9900" />
+<meta name="msapplication-window" content="width=800; height=450" />
+<meta name="msapplication-tooltip" content="OFXProxyは、対応金融機関の口座情報をOFXファイルとしてダウンロードできるサービスです。" />
+<title><!--[title]--></title>
+<link rel="stylesheet" type="text/css" href="./client/default.css" />
+</head>
+<body>
+
+<h1><!--[title]--></h1>
+
+<!--[content]-->
+
+<script type="text/javascript">
+var flag_ofxform = false;
+function exec_ofxform(obj) {
+	var ret = false;
+	var fnc = function() {
+		flag_ofxform = false;
+	};
+	with(obj) {
+		action = action.split("?")[0] + "?rand=" + Math.round(new Date().getTime() / 1000).toString();
+		if(flag_ofxform == true) {
+			alert("明細のダウンロードを開始するまで、しばらくお待ちください。");
+		} else {
+			self.window.setTimeout(fnc, 5000);
+			flag_ofxform = true;
+			ret = true;
+		}
+	}
+	return ret;
+}
+function link_ofxform(obj) {
+	with(obj) target = parentNode.id;
+	return true;
+}
+function help_ofxform(obj) {
+	obj.target = "help_ofxform";
+	return true;
+}
+</script>
+
+</body>
+</html>

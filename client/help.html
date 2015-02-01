@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Language" content="ja-JP" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Last-Modified" content="Thu, 01 Jan 1970 00:00:00 GMT" />
+<meta name="description" content="OFXProxyは、対応金融機関の口座情報をOFXファイルとしてダウンロードできるサービスです。生成した電子明細をOFX対応マネー管理ソフトに取り込めます。" />
+<meta name="keywords" content="OFXProxy,金融機関,残高照会,OFX,Open Financial Exchange" />
+<meta name="viewport" content="width=device-width" />
+<title>ヘルプ</title>
+<link rel="stylesheet" type="text/css" href="./default.css" />
+</head>
+
+<body>
+<h1>ヘルプ</h1>
+
+<h2 id="bank">銀行</h2>
+
+<h3 id="mhbk">みずほ銀行</h3>
+
+<h4>普通預金</h4>
+<ul>
+<li>前々月1日から本日までの明細を取得します。</li>
+<li>口座が複数存在する場合、すべての口座の明細を取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>追加認証</h4>
+<ul>
+<li>ログイン時、本人確認のためリスクベース認証を求められる場合があります。</li>
+<li>金融機関に予め登録した合言葉を2回、<strong>全角</strong>文字で入力してください。</li>
+</ul>
+
+<h3 id="btmu">三菱東京UFJ銀行</h3>
+
+<h4>円普通預金</h4>
+<ul>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>口座が複数存在する場合、すべての口座の明細を取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>追加認証</h4>
+<ul>
+<li>ログイン時、本人確認のためリスクベース認証を求められる場合があります。</li>
+<li>金融機関からのメールを受信し、本文に記載されているワンタイムパスワードを入力してください。</li>
+</ul>
+
+<h3 id="smbc">三井住友銀行</h3>
+
+<h4>普通預金</h4>
+<ul>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>口座が複数存在する場合、すべての口座の明細を取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h3 id="netbk">住信SBIネット銀行</h3>
+<ul>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>円普通預金</h4>
+<ul>
+<li>口座番号の末尾が<strong>-01</strong>です。</li>
+</ul>
+
+<h4>SBIハイブリッド預金</h4>
+<ul>
+<li>口座番号の末尾が<strong>-00</strong>です。</li>
+</ul>
+
+<h4>目的別預金</h4>
+<ul>
+<li>口座番号の末尾が<strong>-XX</strong>（XXは02～99）です。</li>
+<li>口座が複数存在する場合、すべての口座の明細を取得します。</li>
+</ul>
+
+<h3 id="jpbank">ゆうちょ銀行</h3>
+
+<h4>普通預金、貯蓄預金、当座預金</h4>
+<ul>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>口座が複数存在する場合、最初の口座の明細を取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>追加認証</h4>
+<ul>
+<li>ログイン時、本人確認のためリスクベース認証を求められる場合があります。</li>
+<li>金融機関に予め登録した合言葉を2回、<strong>全角</strong>文字で入力してください。</li>
+</ul>
+
+<h2 id="creditcard">クレジットカード</h2>
+
+<h3 id="mufgcard">MUFGカード</h3>
+<p>MUFGカードへの対応は、Hiromu Takahashiさんにより提供されています。</p>
+<ul>
+<li>最新月の未確定明細を取得します。</li>
+</ul>
+
+<h3 id="dccard">DCカード</h3>
+<ul>
+<li>最新月の確定済み明細を取得します。</li>
+<li>カードが複数存在する場合、すべてのカードの明細を取得します。</li>
+<li>支払請求金額は、支払請求日に「DCカード」という名称で、明細に追加します。</li>
+<li>カード名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>追加認証</h4>
+<ul>
+<li>ログイン時、生年月（西暦）を6桁の数字で入力してください。</li>
+</ul>
+
+<h3 id="smbccard">三井住友カード</h3>
+<ul>
+<li>最新月の確定済み明細を取得します。</li>
+<li>支払請求金額は、支払請求日に「三井住友カード」という名称で、明細に追加します。</li>
+<li>最新月の確定済み明細が0件の場合、支払請求日に「三井住友カード」という名称で、0円の明細を追加します。</li>
+<li>カード名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h3 id="saisoncard">セゾンカード</h3>
+<ul>
+<li>最新月の確定済み明細を取得します。</li>
+<li>カードが複数存在する場合、最初のカードの明細を取得します。</li>
+<li>「IDおまとめ設定」には対応していません。そのため、個々のNetアンサーIDでログインしてください。</li>
+<li>支払請求金額は、支払請求日に「セゾンカード」という名称で、明細に追加します。</li>
+<li>最新月の確定済み明細が0件の場合、支払請求日に「セゾンカード」という名称で、0円の明細を追加します。このとき、支払請求日は各月4日に固定されており、実際の請求日と異なる場合があります。</li>
+<li>カード名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>追加認証</h4>
+<ul>
+<li>ログイン時、本人確認のため秘密の質問によるご本人様確認を求められる場合があります。</li>
+<li>金融機関に予め登録した秘密の答えを入力してください。</li>
+<li>なお、「秘密の質問対象サービス一覧」の「任意グループ」には、「設定なし」、または「ログイン（全サービス）」を選択してください。「個別設定」には対応していません。</li>
+</ul>
+
+<h3 id="jaccscard">ジャックスカード</h3>
+<p>ジャックスカードへの対応は、Hiromu Takahashiさんにより提供されています。</p>
+<p>サイトの仕様変更に伴い、2014年10月30日より非対応の状態となっています。</p>
+<ul>
+<li>参照可能なすべての月の確定済み明細を取得します。</li>
+<li>未確定明細を取得します。</li>
+</ul>
+
+<h3 id="viewcard">ビューカード</h3>
+<ul>
+<li>最新月の確定済み明細を取得します。</li>
+<li>カードが複数存在する場合、すべてのカードの明細を取得します。</li>
+<li>支払請求金額は、支払請求日に「ビューカード」という名称で、明細に追加します。</li>
+<li>最新月の確定済み明細が0件の場合、支払請求日に「ビューカード」という名称で、0円の明細を追加します。このとき、支払請求日は各月4日に固定されており、実際の請求日と異なる場合があります。</li>
+<li>カード名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h2 id="inestment">証券</h2>
+
+<h3 id="sbisec">SBI証券</h3>
+<ul>
+<li>前月1日から本日までの明細（最大10,000件）を取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>国内株式（現物）</h4>
+<ul>
+<li>銘柄コード、銘柄名称、保有株数、現在値、評価額、損益額を取得します。</li>
+<li>売買履歴を取得します。</li>
+<li>損益額を<code>&lt;POSSTOCK&gt;</code>の<code>&lt;MEMO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>投資信託</h4>
+<ul>
+<li>ファンド名、保有口数、基準価額、評価額、損益額を取得します。</li>
+<li>売買履歴を取得します。</li>
+<li>損益額を<code>&lt;POSMF&gt;</code>の<code>&lt;MEMO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>債券</h4>
+<ul>
+<li>銘柄、保有額面、買付単価、約定金額、利率、償還日を取得します。</li>
+<li>損益額を<code>&lt;POSDEBT&gt;</code>の<code>&lt;MEMO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>預り金</h4>
+<ul>
+<li>入出金明細を取得します。</li>
+<li>現在の残高を取得します。</li>
+<li>現金残高等（合計）を<code>&lt;MARGINBALANCE&gt;</code>として出力します。</li>
+<li>買付余力（3営業日後）を<code>&lt;AVAILCASH&gt;</code>として出力します。</li>
+</ul>
+
+<h3 id="kabucom">カブドットコム証券</h3>
+<ul>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>国内株式（現物）</h4>
+<ul>
+<li>銘柄コード、銘柄名称、保有株数、現在値、評価額、損益額を取得します。</li>
+<li>売買履歴を取得します。</li>
+<li>損益額を<code>&lt;POSSTOCK&gt;</code>の<code>&lt;MEMO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>投資信託</h4>
+<ul>
+<li>ファンド名、保有口数、基準価額、評価額、損益額を取得します。</li>
+<li>売買履歴を取得します。</li>
+<li>損益額を<code>&lt;POSMF&gt;</code>の<code>&lt;MEMO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>お預り金</h4>
+<ul>
+<li>入出金明細を取得します。</li>
+<li>現在の残高は取得しません。</li>
+</ul>
+
+<h3 id="nrkn">日本レコード・キーピング・ネットワーク</h3>
+<ul>
+<li>プラン名を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>投資信託</h4>
+<ul>
+<li>ファンド名、保有口数、基準価額、評価額、損益額を取得します。</li>
+<li>拠出、収益分配・満期継続履歴を取得します。</li>
+<li>損益額を<code>&lt;POSMF&gt;</code>の<code>&lt;MEMO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>投資信託以外の商品</h4>
+<ul>
+<li>投資信託として取得します。</li>
+</ul>
+
+<h4>現金</h4>
+<ul>
+<li>入出金明細を取得します。</li>
+<li>現在の残高は取得しません。</li>
+</ul>
+
+<h2 id="prepaid">前払式帳票</h2>
+
+<h3 id="mobilesuica">モバイルSuica</h3>
+<ul>
+<li>SF（電子マネー）の残高・入出金履歴を取得します。</li>
+<li>前日から26週間前までの明細を取得します。</li>
+<li>SuicaID番号を口座番号として取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h3 id="nanaco">nanaco</h3>
+<ul>
+<li>nanacoマネーの残高・入出金履歴を取得します。</li>
+<li>センターお預り分の残高・入出金履歴は取得しません。</li>
+<li>前日から3か月分前までの明細を取得します。</li>
+<li>nanaco番号を口座番号として取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h3 id="chocom">ちょコムeマネー</h3>
+<ul>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>貯金箱番号を支店番号として取得します。</li>
+<li>.Com-ID（ハイフンを除く）を口座番号として取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h3 id="esaifu">e-さいふ</h3>
+<ul>
+<li>e-さいふ口座（eマネー）の入出金履歴を取得します。</li>
+<li>各バーチャルカードの入出金履歴は取得しません。</li>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>口座IDを口座番号として取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h4>追加認証</h4>
+<ul>
+<li>ログイン時、本人確認のため画像認証によるご本人様確認を求められる場合があります。</li>
+<li>画像に記載されている英数字を入力してください。</li>
+</ul>
+
+<h3 id="smcprepaide">三井住友VISAプリペイドe</h3>
+<ul>
+<li>各バーチャルカードの入出金履歴を取得します。</li>
+<li>バーチャルカードが複数存在する場合、すべてのバーチャルカードの明細を取得します。</li>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>カード番号を口座番号として取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+</ul>
+
+<h3 id="auwallet">au WALLET</h3>
+<ul>
+<li>前月1日から本日までの明細を取得します。</li>
+<li>管理番号を口座番号として取得します。</li>
+<li>口座名称を<code>&lt;MKTGINFO&gt;</code>として出力します。</li>
+<li>ご利用開始のお手続きが済んでいない場合、「情報取得エラー」を表示します。</li>
+</ul>
+
+</body>
+</html>
+

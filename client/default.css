@@ -1,0 +1,94 @@
+* {
+	font-family: "メイリオ", "Meiryo", sans-serif;
+}
+body {
+	width: 720px;
+	margin: 20px 20px 120px 20px;
+	cursor: default;
+	color: #000000;
+	background: #FFFFFF;
+}
+h1 {
+	margin: 0px;
+	color: #993300;
+	background: transparent;
+}
+h2 {
+	margin: 1em 0px 0px 0px;
+	border: solid #993300;
+	border-width: 0px 0px 2px 0px;
+	color: #993300;
+	background: transparent;
+}
+h3 {
+	border: solid #FF9900;
+	border-width: 2px 2px 0px 2px;
+	margin: 1em 0px 0px 0px;
+	color: #FFFFFF;
+	background: #FF9900;
+	text-indent: 0.5em;
+	text-align: center;
+	clear: both;
+}
+h3 a {
+	color: #FFFFFF;
+	background: transparent;
+}
+h4 {
+	margin: 1em 0px 0px 0px;
+	color: #CC6600;
+	background: transparent;
+}
+p {
+	margin: 0px;
+	color: #666666;
+	background: #FFFFFF;
+}
+form.ofxform {
+	border: solid 2px #FF9900;
+	border-radius: 0px 0px 10px 10px;
+	padding: 0px 0px 5px 0px;
+	margin: 0px;
+	color: #CC6600;
+	background: #FFFFCC;
+}
+form.ofxform dl {
+	padding: 0px 10px 0px 10px;
+}
+form.ofxform dt {
+	float: left;
+	clear: both;
+	width: 160px;
+	padding: 0.1em 0px 0.1em 0px;
+	font-size: 80%;
+	text-align: left;
+}
+form.ofxform dt:after {
+	content: " :";
+}
+form.ofxform dd {
+	margin-left: 160px;
+	padding: 0.1em 0px 0.1em 10px;
+	color: #000000;
+	background: transparent;
+}
+form.ofxform dd input.ofxinput {
+	width: 180px;
+}
+form.ofxform div.ofximage {
+	float: right;
+	position: relative;
+	top: -45px;
+	left: -10px;
+	width: 320px;
+	height: 40px;
+}
+form.ofxform div.ofximage input {
+	cursor: pointer;
+}
+form.ofxform div.ofximage a img {
+	border: 0px;
+}
+a img {
+	border: 0px;
+}
