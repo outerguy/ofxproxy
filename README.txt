@@ -6,3 +6,6 @@ OFXProxyを実行するには、PHPバージョン5以降が必要です。
 
 ソースコード（GitHub）
 https://github.com/outerguy/ofxproxy/
+
+プロジェクトサイト（Beatrek）
+http://www.beatrek.com/home/ofxproxy.htm
