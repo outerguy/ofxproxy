@@ -31,7 +31,6 @@ function exec_ofxform(obj) {
 		flag_ofxform = false;
 	};
 	with(obj) {
-		action = action.split("?")[0] + "?rand=" + Math.round(new Date().getTime() / 1000).toString();
 		if(flag_ofxform == true) {
 			alert("明細のダウンロードを開始するまで、しばらくお待ちください。");
 		} else {
