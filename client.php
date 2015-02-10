@@ -53,6 +53,11 @@ $content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_INVESTMENT . "\">証券</a></li
 $content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_PREPAID . "\">前払式帳票</a></li>\r\n";
 $content .= "</ul>\r\n";
 $content .= "\r\n";
+$content .= "<h2 id=\"LINK\">関連リンク</h2>\r\n";
+$content .= "<ul>\r\n";
+$content .= "<li><a href=\"http://www.beatrek.com/home/ofxproxy.htm\">プロジェクトサイト</a></li>\r\n";
+$content .= "</ul>\r\n";
+$content .= "\r\n";
 $content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_BANK . "\">銀行</h2>\r\n";
 $content .= "\r\n";
 foreach($banks as $bank) $content .= get_ofxform($bank);
