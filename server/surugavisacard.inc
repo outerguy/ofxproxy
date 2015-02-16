@@ -108,7 +108,6 @@ if(strpos($body, "‘ü¡ƒƒ“ƒeƒiƒ“ƒX’†‚Å‚·") !== false) {
         return $a['DTPOSTED'] > $b['DTPOSTED'];
     });
 	$ofxdom->setTrans($cds);
-    //
     $cds_balamt = 0;
     $cd_num = 0;
     $cds_s = "";
@@ -179,34 +178,7 @@ function surugavisa_http11($method, $protocol, $host, $page = "/", $query = "", 
 }
 
 function surugavisa_updatecookie($head, $cookie) {
-	$ret = "";
-	$cookies = array();
-	
-	$ckvs = explode(";", $cookie);
-	foreach($ckvs as $ckv) {
-		list($ck, $cv) = explode("=", $ckv, 2);
-		$ck = trim($ck);
-		$cv = trim($cv);
-		if($ck != "" && $cv != "") $cookies[$ck] = $ck . "=" . $cv;
-	}
-	
-	$cks = array("JSESSIONID");
-	foreach($cks as $ck) if(preg_match_all("/[Ss][Ee][Tt]-[Cc][Oo][Oo][Kk][Ii][Ee][\s\t]*:[\s\t]*" . $ck . "=([^;\r\n]*)/", $head, $matches) > 0) $cookies[$ck] = $ck . "=" . $matches[1][count($matches[1]) - 1];
-	$ret = implode("; ", $cookies);
-	return $ret;
-}
-
-function surugavisa_getqueries($body) {
-    $forms = parse_tag($body, "form");
-    $c = parse_tag_search($forms, "name", "MainForm");
-	$inputs = parse_tag($forms[$c]["innerHTML"], "input");
-	$queries = array();
-	foreach ($inputs as $input) {
-        if ($input["name"] != "") {
-            $queries[$input["name"]] = urlencode($input["name"]) . "=" . urlencode($input["value"]);
-        }
-    }
-    return $queries;
+    return update_cookie(array("JSESSIONID"), parse_header($head, "set-cookie"), $cookie);
 }
 
 function surugavisa_parsedom($str) {
