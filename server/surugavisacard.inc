@@ -243,7 +243,7 @@ function surugavisa_parsedom($str) {
 		
 		// 日付を取得する
         preg_match("/([0-9]{4}).*?([0-9]{1,2}).*?([0-9]{1,2})/", str_replace(" ", "", $cols1->item(1)->nodeValue), $matches);
-        $cd["DTPOSTED"] = sprintf("%d%02d%02d", $matches[1], $matches[2], $matches[3]);
+        $cd["DTPOSTED"] = sprintf("%d%02d%02d000000[+9:JST]", $matches[1], $matches[2], $matches[3]);
 
         // トランザクション番号（前半）を生成する
         $cd["FITID"] = '000';
