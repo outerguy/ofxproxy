@@ -68,7 +68,6 @@ if(strpos($body, "只今メンテナンス中です") !== false) {
 	$resp["cookie"] = $cookie;
 	$resp["head"] = $head;
 	$resp["body"] = $body;
-	$resp["ofx"] = generate_ofx($resp["status"]);
 } else if(strpos($body, "loginForm") !== false) {
 	// ログイン失敗の場合
 	$resp["status"] = ENV_NUM_STATUS_FAILURE;
@@ -78,7 +77,6 @@ if(strpos($body, "只今メンテナンス中です") !== false) {
 	$resp["cookie"] = $cookie;
 	$resp["head"] = $head;
 	$resp["body"] = $body;
-	$resp["ofx"] = generate_ofx($resp["status"]);
 } else {
     // カード名称・カード番号を取得する
     $account['acctname'] = 'スルガ Visaデビット/クレジット';
