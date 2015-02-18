@@ -281,11 +281,22 @@ if(strpos($body, "システムメンテナンスのため") !== false) {
 			if(strpos($head, "Content-Type: text/html") === false) {
 				$str = convert_ofx($body);
 				
-				// BRANCHIDを補正する
+				// BRANCHIDの数値の書式を補正する
 				$str = str_replace("<BRANCHID>0" . $account["branchid"] . "</BRANCHID>", "<BRANCHID>" . $account["branchid"] . "</BRANCHID>", $str);
 				
-				// ACCTIDを補正する
+				// ACCTIDの数値の書式を補正する
 				$str = str_replace("<ACCTID>0" . $account["acctid"] . "</ACCTID>", "<ACCTID>" . $account["acctid"] . "</ACCTID>", $str);
+				
+				// FITIDの数値の書式を補正する
+				$dtposteds = parse_tag($str, "DTPOSTED");
+				$fitids = parse_tag($str, "FITID");
+				$dtpostedbuf = "";
+				$cd_num = 0;
+				if(count($dtposteds) == count($fitids)) for($j = 0; $j < count($fitids); $j++) {
+					if($dtposteds[$j]["innerHTML"] == $dtpostedbuf) $cd_num++; else $cd_num = 0;
+					$str = str_replace($fitids[$j]["match"], "<FITID>" . substr($dtposteds[$j]["innerHTML"], 0, 8) . sprintf("%04d", (integer)$account["id"]) . "000" . sprintf("%05d", $cd_num) . "</FITID>", $str);
+					$dtpostedbuf = $dtposteds[$j]["innerHTML"];
+				}
 				
 				// 口座名称を出力する
 				if($account["acctname"] != "") $str = str_replace("</STMTRS>", "<MKTGINFO>" . mb_convert_string($account["acctname"]) . "</MKTGINFO>\r\n</STMTRS>", $str);
