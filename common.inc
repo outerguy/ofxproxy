@@ -237,7 +237,7 @@ class ofxDOM {
 	public function getTrans() {
 		return $this->dom->getElementsByTagName('STMTTRN');
 	}
-
+	
 	public function setBankTranList($cds_s, $cds_e) {
 		$dom = $this->dom;
 		$banktranlist = $this->banktranlist;
