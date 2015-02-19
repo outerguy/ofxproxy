@@ -25,6 +25,8 @@
 
 <script type="text/javascript">
 var flag_ofxform = false;
+load_cookie_ofxform();
+save_cookie_ofxform();
 function exec_ofxform(obj) {
 	var ret = false;
 	var fnc = function() {
@@ -47,6 +49,28 @@ function link_ofxform(obj) {
 }
 function help_ofxform(obj) {
 	obj.target = "help_ofxform";
+	return true;
+}
+function load_cookie_ofxform() {
+	var cookies = self.document.cookie.split("; ");
+	var i;
+	for(i = 0; i != cookies.length; i++) {
+		kvs = cookies[i].split("=", 2);
+		with(self.document) if(getElementById(kvs[0])) {
+			getElementById(kvs[0]).style.display = kvs[1];
+			getElementById(kvs[0] + "_hide").checked = (kvs[1] == "none"? true: false);
+		}
+	}
+	return true;
+}
+function save_cookie_ofxform() {
+	var inputs = self.document.getElementsByTagName("input");
+	var expire = new Date();
+	var i;
+	expire.setTime(expire.getTime() + 86400 * 60);
+	for(i in inputs) if(inputs[i].type == "checkbox") if(inputs[i].id != "all_hide") {
+		self.document.cookie = inputs[i].id.replace("_hide", "") + "=" + (inputs[i].checked == true? "none": "block") + "; expires=" + expire.toUTCString();
+	}
 	return true;
 }
 </script>
