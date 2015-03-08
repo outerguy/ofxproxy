@@ -44,7 +44,7 @@ if(ENV_BOOL_DEBUG == true) $content .= "<p id=\"caution\" style=\"padding: 4px 8
 
 $content .= "<p style=\"float: right; clear: right; margin: 0px 0px 1em 1em;\"><img src=\"" . ENV_FILE_DIR_CLIENT . "wsofx.gif\" width=\"88\" height=\"31\" alt=\"We Support OFX\" /></p>\r\n";
 $content .= "<p><a href=\"https://github.com/outerguy/ofxproxy/\">OFXProxy</a>は、対応金融機関の口座情報を<abbr title=\"Open Financial Exchange\">OFX</abbr>ファイルとしてダウンロードできるサービスです。生成した電子明細をOFX対応マネー管理ソフトに取り込めます。</p>\r\n";
-$content .= "<p>金融機関の非表示設定は、最大60日間、Cookieに保持されます。</p>\r\n";
+$content .= "<p>なお、金融機関の非表示設定は、最大60日間、Cookieに保持されます。</p>\r\n";
 
 // fiidが指定されていない場合、または指定されていたものの該当金融機関が1つも存在しなかった場合、すべての金融機関を表示する
 $content .= "<ul>\r\n";
