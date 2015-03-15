@@ -297,7 +297,7 @@ function parse_amount($str) {
 
 // 日付をパースする
 function parse_date($str) {
-	list($dy, $dm, $dd, $dummy) = explode("/", str_replace(array("年", "月", "日", "-"), array("/", "/", "", "/"), trim($str)), 4);
+	list($dy, $dm, $dd, $dummy) = explode("/", str_replace(array("年", "月", "日", "-", ".", "T", " "), array("/", "/", "/", "/", "/", "/", "/"), trim($str)), 4);
 	$dy = (integer)$dy;
 	if($dy < 1988) $dy += 1988;
 	$dm = (integer)$dm;
@@ -754,7 +754,7 @@ function generate_html($settings, $resp) {
 			break;
 		}
 		$str .= "<p>本人確認のため、" . mb_htmlspecialchars($settings["name"]) . "より追加認証を求められています。</p>\r\n";
-		$str .= "<form method=\"post\" action=\"" . $addr . "\" enctype=\"application/x-www-form-urlencoded\" accept-charset=\"UTF-8\" class=\"ofxform\" onsubmit=\"return exec_ofxform(this);\">\r\n";
+		$str .= "<form method=\"post\" action=\"" . $addr . "?fiid=" . $settings["fiid"] . "\" enctype=\"application/x-www-form-urlencoded\" accept-charset=\"UTF-8\" class=\"ofxform\" onsubmit=\"return exec_ofxform(this);\">\r\n";
 		$str .= "<dl>\r\n";
 		$str .= "<dt>追加認証</dt>\r\n";
 		if($type == "image") {
