@@ -40,7 +40,7 @@ define("ENV_FILE_DIR_SERVER", "./server/");
 define("ENV_FILE_DIR_COMMON", "./common/");
 define("ENV_FILE_DIR_LOG", "./log/");
 
-define("ENV_FILE_INI_FI", "fi.ini");
+define("ENV_FILE_XML_FI", "fi.xml");
 define("ENV_FILE_TEMPLATE_HTML", "template.html");
 define("ENV_FILE_TEMPLATE_OFX", "ofx.xml");
 
@@ -119,31 +119,33 @@ function env_dlog($str) {
 
 function get_fi_settings($fiid = "") {
 	$ret = array();
-	$ini = parse_ini_file(ENV_FILE_DIR_COMMON . ENV_FILE_INI_FI, true);
-	$ks = array_keys($ini);
-	$tag = "";
-	foreach($ks as $k) {
-		$ini[$k]["fiid"] = $k;
-		switch($ini[$k]["type"]) {
-		case ENV_STR_OFX_BROKER_BANK:
-		case ENV_STR_OFX_BROKER_PREPAID:
-			break;
-		case ENV_STR_OFX_BROKER_CREDITCARD:
-			$tag = "CC";
-			break;
-		case ENV_STR_OFX_BROKER_INVESTMENT:
-			$tag = "INV";
-			break;
-		default:
-			$ini[$k]["type"] = ENV_STR_OFX_BROKER_BANK;
-			break;
+	$xml = simplexml_load_file(ENV_FILE_DIR_COMMON . ENV_FILE_XML_FI);
+	$settings = array();
+	foreach($xml->fi as $fi) {
+		$id = (string)$fi["id"];
+		$settings[$id]["fiid"] = (string)$id;
+		$settings[$id]["type"] = (string)$fi->type;
+		$settings[$id]["name"] = (string)$fi->name;
+		$settings[$id]["home"] = (string)$fi->home;
+		if(isset($fi["code"]) == true) $settings[$id]["code"] = (string)$fi["code"];
+		if(isset($fi->additional) == true) $settings[$id]["additional"] = implode("|", array((string)$fi->additional, (string)$fi->additional["input"], (string)$fi->additional["type"]));
+		
+		$inputs = array();
+		foreach($fi->form->input as $input) {
+			array_push($inputs, (string)$input["id"]);
+			$settings[$id][(string)$input["id"]] = (string)$input . "|" . (string)$input["type"];
 		}
-		$ini[$k]["tag"] = $tag;
+		$settings[$id]["form"] = implode("|", $inputs);
+		
+		if(isset($fi->itemlist) == true) foreach($fi->itemlist->item as $item) {
+			$settings[$id][(string)$item["id"]] = (string)$item;
+		}
 	}
+	
 	if($fiid != "") {
-		if($ini[$fiid]) $ret = $ini[$fiid];
+		if(isset($settings[$fiid]) == true) $ret = $settings[$fiid];
 	} else {
-		$ret = $ini;
+		$ret = $settings;
 	}
 	return $ret;
 }
@@ -741,8 +743,7 @@ function generate_html($settings, $resp) {
 		// 追加認証画面を生成する
 		$title = "追加認証";
 		$addr = str_replace("?" . $_SERVER["QUERY_STRING"], "", $_SERVER["REQUEST_URI"]);
-		$defs = parse_csv($settings["auth"]);
-		list($text, $attr, $type) = $defs[0];
+		list($text, $attr, $type) = explode("|", $settings["additional"], 3);
 		$attr = strtolower($attr);
 		switch($attr) {
 		case "text":
@@ -753,16 +754,16 @@ function generate_html($settings, $resp) {
 			$attr = "text";
 			break;
 		}
-		$str .= "<p>本人確認のため、" . mb_htmlspecialchars($settings["name"]) . "より追加認証を求められています。</p>\r\n";
+		$str .= "<p>本人確認のため、" . mb_convert_encoding($settings["name"], "Shift_JIS", "UTF-8") . "より追加認証を求められています。</p>\r\n";
 		$str .= "<form method=\"post\" action=\"" . $addr . "?fiid=" . $settings["fiid"] . "\" enctype=\"application/x-www-form-urlencoded\" accept-charset=\"UTF-8\" class=\"ofxform\" onsubmit=\"return exec_ofxform(this);\">\r\n";
 		$str .= "<dl>\r\n";
 		$str .= "<dt>追加認証</dt>\r\n";
 		if($type == "image") {
 			$str .= "<dd><img src=\"" . $resp["addition"] . "\" alt=\"画像\" /></dd>\r\n";
 		} else {
-			$str .= "<dd>" . mb_htmlspecialchars($resp["addition"]) . "</dd>\r\n";
+			$str .= "<dd>" . $resp["addition"] . "</dd>\r\n";
 		}
-		$str .= "<dt>" . mb_htmlspecialchars($text) . "</dt>\r\n";
+		$str .= "<dt>" . mb_convert_encoding($text, "Shift_JIS", "UTF-8") . "</dt>\r\n";
 		$str .= "<dd><input type=\"" . $attr . "\" name=\"" . $resp["aid"] . "\" value=\"\" size=\"16\" maxlength=\"256\" class=\"ofxinput\" /><input type=\"hidden\" name=\"sesscookie\" value=\"" . $resp["sesscookie"] . "\" /><input type=\"hidden\" name=\"accesskey\" value=\"" . $resp["accesskey"] . "\" /></dd>\r\n";
 		$str .= "</dl>\r\n";
 		$str .= "<div class=\"ofximage\"><input type=\"hidden\" name=\"fiid\" value=\"" . $settings["fiid"] . "\" /><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_1.gif\" width=\"107\" height=\"40\" alt=\"We Support OFXロゴ\" /><input type=\"image\" src=\"" . ENV_FILE_DIR_CLIENT . "btn_3.gif\" alt=\"続行する\" style=\"width: 77px; height: 40px;\" /><a href=\"" . $addr . "\" class=\"ofxlink\" onclick=\"self.window.history.go(-" . $resp["sid"] . "); return false;\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_4.gif\" width=\"75\" height=\"40\" alt=\"中止する\" /></a><a href=\"" . ENV_FILE_DIR_CLIENT . "help.html#" . $settings["fiid"] . "\" class=\"ofxlink\" onclick=\"return help_ofxform(this);\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_5.gif\" width=\"61\" height=\"40\" alt=\"ヘルプ\" /></a></div>\r\n";
@@ -778,13 +779,13 @@ function generate_html($settings, $resp) {
 		// メンテナンスエラー画面を生成する
 		$title = "メンテナンスエラー";
 		$str .= "<p>システムメンテナンス画面が表示されたため、処理を中断しました。</p>\r\n";
-		$str .= "<p><a href=\"" . mb_htmlspecialchars($settings["home"]) . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . mb_htmlspecialchars($settings["name"]) . "</a>のシステムメンテナンスが終了した後、再試行してください。</p>\r\n";
+		$str .= "<p><a href=\"" . $settings["home"] . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . mb_convert_encoding($settings["name"], "Shift_JIS", "UTF-8") . "</a>のシステムメンテナンスが終了した後、再試行してください。</p>\r\n";
 		break;
 	case ENV_NUM_STATUS_CAUTION:
 		// 情報取得エラー画面を生成する
 		$title = "情報取得エラー";
 		$str .= "<p>「重要なお知らせ」等の画面が表示されたため、処理を中断しました。</p>\r\n";
-		$str .= "<p><a href=\"" . mb_htmlspecialchars($settings["home"]) . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . mb_htmlspecialchars($settings["name"]) . "</a>にログインし、画面を確認した後、再試行してください。</p>\r\n";
+		$str .= "<p><a href=\"" . $settings["home"] . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . mb_convert_encoding($settings["name"], "Shift_JIS", "UTF-8") . "</a>にログインし、画面を確認した後、再試行してください。</p>\r\n";
 		break;
 	case ENV_NUM_STATUS_SUCCESS:
 	case ENV_NUM_STATUS_NONE:

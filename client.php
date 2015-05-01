@@ -1,7 +1,7 @@
 <?php
 /*
 OFXProxy
-client.php: ƒƒOƒCƒ“ƒtƒH[ƒ€‚ğ¶¬‚·‚é
+client.php: ãƒ­ã‚°ã‚¤ãƒ³ãƒ•ã‚©ãƒ¼ãƒ ã‚’ç”Ÿæˆã™ã‚‹
 Copyright (C) 2012-2015 OFFICE OUTERGUY. All rights reserved.
 mailto:contact@beatrek.com
 Dual-licensed under the GNU AGPLv3 and Beatrek Origin License.
@@ -14,7 +14,7 @@ $creditcards = array();
 $investments = array();
 $prepaids = array();
 
-// INIƒtƒ@ƒCƒ‹‚É’è‹`‚³‚ê‚Ä‚¢‚é‹à—Z‹@ŠÖ‚ğtype–ˆ‚É®—‚·‚é
+// INIãƒ•ã‚¡ã‚¤ãƒ«ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹é‡‘èæ©Ÿé–¢ã‚’typeæ¯ã«æ•´ç†ã™ã‚‹
 $fis = get_fi_settings();
 foreach($fis as $fi) {
 	switch($fi["type"]) {
@@ -31,7 +31,7 @@ foreach($fis as $fi) {
 		array_push($prepaids, $fi);
 		break;
 	default:
-		// ‰½‚à‚µ‚È‚¢
+		// ä½•ã‚‚ã—ãªã„
 		break;
 	}
 }
@@ -39,43 +39,43 @@ foreach($fis as $fi) {
 $title = ENV_PRODUCT_FAMILY;
 $content = "";
 
-// ƒfƒoƒbƒO‹@”\‚ª—LŒø‚Ìê‡AŒx‚ğ•\¦‚·‚é
-if(ENV_BOOL_DEBUG == true) $content .= "<p id=\"caution\" style=\"padding: 4px 8px 4px 8px; color: #FFFFFF; background: #FF0000; font-weight: bold; text-indent: 0px;\">yŒxzŠJ”­ÒŒü‚¯iƒfƒoƒbƒOj‹@”\‚ª—LŒø‚Ì‚½‚ßAƒƒOƒCƒ“î•ñ‚ğŠÜ‚ŞÚ×‚È‹L˜^‚ªc‚è‚Ü‚·BŠJ”­ÒˆÈŠO‚Ì•û‚ÍAƒƒOƒCƒ“î•ñ‚ğ“ü—Í‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B‚Ü‚½‚ÍAŠJ”­Ò‚Ö‚²‘Š’k‚­‚¾‚³‚¢B</p>\r\n";
+// ãƒ‡ãƒãƒƒã‚°æ©Ÿèƒ½ãŒæœ‰åŠ¹ã®å ´åˆã€è­¦å‘Šã‚’è¡¨ç¤ºã™ã‚‹
+if(ENV_BOOL_DEBUG == true) $content .= "<p id=\"caution\" style=\"padding: 4px 8px 4px 8px; color: #FFFFFF; background: #FF0000; font-weight: bold; text-indent: 0px;\">ã€è­¦å‘Šã€‘é–‹ç™ºè€…å‘ã‘ï¼ˆãƒ‡ãƒãƒƒã‚°ï¼‰æ©Ÿèƒ½ãŒæœ‰åŠ¹ã®ãŸã‚ã€ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã‚’å«ã‚€è©³ç´°ãªè¨˜éŒ²ãŒæ®‹ã‚Šã¾ã™ã€‚é–‹ç™ºè€…ä»¥å¤–ã®æ–¹ã¯ã€ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã‚’å…¥åŠ›ã—ãªã„ã§ãã ã•ã„ã€‚ã¾ãŸã¯ã€é–‹ç™ºè€…ã¸ã”ç›¸è«‡ãã ã•ã„ã€‚</p>\r\n";
 
 $content .= "<p style=\"float: right; clear: right; margin: 0px 0px 1em 1em;\"><img src=\"" . ENV_FILE_DIR_CLIENT . "wsofx.gif\" width=\"88\" height=\"31\" alt=\"We Support OFX\" /></p>\r\n";
-$content .= "<p><a href=\"https://github.com/outerguy/ofxproxy/\">OFXProxy</a>‚ÍA‘Î‰‹à—Z‹@ŠÖ‚ÌŒûÀî•ñ‚ğ<abbr title=\"Open Financial Exchange\">OFX</abbr>ƒtƒ@ƒCƒ‹‚Æ‚µ‚Äƒ_ƒEƒ“ƒ[ƒh‚Å‚«‚éƒT[ƒrƒX‚Å‚·B¶¬‚µ‚½“dq–¾×‚ğOFX‘Î‰ƒ}ƒl[ŠÇ—ƒ\ƒtƒg‚Éæ‚è‚ß‚Ü‚·B</p>\r\n";
-$content .= "<p>‚È‚¨A‹à—Z‹@ŠÖ‚Ì”ñ•\¦İ’è‚ÍAÅ‘å60“úŠÔACookie‚É•Û‚³‚ê‚Ü‚·B</p>\r\n";
+$content .= "<p><a href=\"https://github.com/outerguy/ofxproxy/\">OFXProxy</a>ã¯ã€å¯¾å¿œé‡‘èæ©Ÿé–¢ã®å£åº§æƒ…å ±ã‚’<abbr title=\"Open Financial Exchange\">OFX</abbr>ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã§ãã‚‹ã‚µãƒ¼ãƒ“ã‚¹ã§ã™ã€‚ç”Ÿæˆã—ãŸé›»å­æ˜ç´°ã‚’OFXå¯¾å¿œãƒãƒãƒ¼ç®¡ç†ã‚½ãƒ•ãƒˆã«å–ã‚Šè¾¼ã‚ã¾ã™ã€‚</p>\r\n";
+$content .= "<p>ãªãŠã€é‡‘èæ©Ÿé–¢ã®éè¡¨ç¤ºè¨­å®šã¯ã€æœ€å¤§60æ—¥é–“ã€Cookieã«ä¿æŒã•ã‚Œã¾ã™ã€‚</p>\r\n";
 
-// fiid‚ªw’è‚³‚ê‚Ä‚¢‚È‚¢ê‡A‚Ü‚½‚Íw’è‚³‚ê‚Ä‚¢‚½‚à‚Ì‚ÌŠY“–‹à—Z‹@ŠÖ‚ª1‚Â‚à‘¶İ‚µ‚È‚©‚Á‚½ê‡A‚·‚×‚Ä‚Ì‹à—Z‹@ŠÖ‚ğ•\¦‚·‚é
+// fiidãŒæŒ‡å®šã•ã‚Œã¦ã„ãªã„å ´åˆã€ã¾ãŸã¯æŒ‡å®šã•ã‚Œã¦ã„ãŸã‚‚ã®ã®è©²å½“é‡‘èæ©Ÿé–¢ãŒ1ã¤ã‚‚å­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ã™ã¹ã¦ã®é‡‘èæ©Ÿé–¢ã‚’è¡¨ç¤ºã™ã‚‹
 $content .= "<ul>\r\n";
-$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_BANK . "\">‹âs</a></li>\r\n";
-$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_CREDITCARD . "\">ƒNƒŒƒWƒbƒgƒJ[ƒh</a></li>\r\n";
-$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_INVESTMENT . "\">ØŒ”</a></li>\r\n";
-$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_PREPAID . "\">‘O•¥®’ •[</a></li>\r\n";
-$content .= "<li><a href=\"#SETTING\">‹à—Z‹@ŠÖ‚Ì”ñ•\¦İ’è</a></li>\r\n";
+$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_BANK . "\">éŠ€è¡Œ</a></li>\r\n";
+$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_CREDITCARD . "\">ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰</a></li>\r\n";
+$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_INVESTMENT . "\">è¨¼åˆ¸</a></li>\r\n";
+$content .= "<li><a href=\"#" . ENV_STR_OFX_BROKER_PREPAID . "\">å‰æ‰•å¼å¸³ç¥¨</a></li>\r\n";
+$content .= "<li><a href=\"#SETTING\">é‡‘èæ©Ÿé–¢ã®éè¡¨ç¤ºè¨­å®š</a></li>\r\n";
 $content .= "</ul>\r\n";
 $content .= "\r\n";
-$content .= "<h2 id=\"LINK\">ŠÖ˜AƒŠƒ“ƒN</h2>\r\n";
+$content .= "<h2 id=\"LINK\">é–¢é€£ãƒªãƒ³ã‚¯</h2>\r\n";
 $content .= "<ul>\r\n";
-$content .= "<li><a href=\"http://www.beatrek.com/home/ofxproxy.htm\">ƒvƒƒWƒFƒNƒgƒTƒCƒg</a></li>\r\n";
+$content .= "<li><a href=\"http://www.beatrek.com/home/ofxproxy.htm\">ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚µã‚¤ãƒˆ</a></li>\r\n";
 $content .= "</ul>\r\n";
 $content .= "\r\n";
-$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_BANK . "\">‹âs</h2>\r\n";
+$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_BANK . "\">éŠ€è¡Œ</h2>\r\n";
 $content .= "\r\n";
 foreach($banks as $bank) $content .= get_ofxform($bank);
-$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_CREDITCARD . "\">ƒNƒŒƒWƒbƒgƒJ[ƒh</h2>\r\n";
+$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_CREDITCARD . "\">ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰</h2>\r\n";
 $content .= "\r\n";
 foreach($creditcards as $creditcard) $content .= get_ofxform($creditcard);
-$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_INVESTMENT . "\">ØŒ”</h2>\r\n";
+$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_INVESTMENT . "\">è¨¼åˆ¸</h2>\r\n";
 $content .= "\r\n";
 foreach($investments as $investment) $content .= get_ofxform($investment);
-$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_PREPAID . "\">‘O•¥®’ •[</h2>\r\n";
+$content .= "<h2 id=\"" . ENV_STR_OFX_BROKER_PREPAID . "\">å‰æ‰•å¼å¸³ç¥¨</h2>\r\n";
 $content .= "\r\n";
 foreach($prepaids as $prepaid) $content .= get_ofxform($prepaid);
-$content .= "<h2 id=\"SETTING\">‹à—Z‹@ŠÖ‚Ì”ñ•\¦İ’è</h2>\r\n";
+$content .= "<h2 id=\"SETTING\">é‡‘èæ©Ÿé–¢ã®éè¡¨ç¤ºè¨­å®š</h2>\r\n";
 $content .= "<form action=\"javascript: void(0);\">\r\n";
 $content .= "<ul>";
-$content .= "<li><label for=\"all_hide\"><input type=\"checkbox\" name=\"all_hide\" id=\"all_hide\" onchange=\"var inputs = self.document.getElementsByTagName(&quot;input&quot;); var i; for(i in inputs) if(inputs[i].type == &quot;checkbox&quot; &amp;&amp; inputs[i].id != &quot;all_hide&quot;) { inputs[i].checked = this.checked; self.document.getElementById(inputs[i].id.replace(&quot;_hide&quot;, &quot;&quot;)).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); } save_cookie_ofxform(); self.document.getElementById(&quot;all_hide&quot;).focus();\" /><strong>‚·‚×‚Ä‘I‘ğ/‰ğœ</strong></label></li>\r\n";
+$content .= "<li><label for=\"all_hide\"><input type=\"checkbox\" name=\"all_hide\" id=\"all_hide\" onchange=\"var inputs = self.document.getElementsByTagName(&quot;input&quot;); var i; for(i in inputs) if(inputs[i].type == &quot;checkbox&quot; &amp;&amp; inputs[i].id != &quot;all_hide&quot;) { inputs[i].checked = this.checked; self.document.getElementById(inputs[i].id.replace(&quot;_hide&quot;, &quot;&quot;)).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); } save_cookie_ofxform(); self.document.getElementById(&quot;all_hide&quot;).focus();\" /><strong>ã™ã¹ã¦é¸æŠ/è§£é™¤</strong></label></li>\r\n";
 foreach($fis as $fi) {
 	$content .= "<li><label for=\"" . $fi["fiid"] . "_hide\"><input type=\"checkbox\" name=\"" . $fi["fiid"] . "_hide\" id=\"" . $fi["fiid"] . "_hide\" onchange=\"self.document.getElementById(&quot;" . $fi["fiid"] . "&quot;).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); save_cookie_ofxform(); self.document.getElementById(&quot;" . $fi["fiid"] . "_hide&quot;).focus();\" />" . $fi["name"] . "</label></li>\r\n";
 }
@@ -83,8 +83,6 @@ $content .= "</ul>\r\n";
 $content .= "</form>\r\n";
 $content .= "\r\n";
 
-$title = mb_convert_encoding($title, "UTF-8", "Shift_JIS");
-$content = mb_convert_encoding($content, "UTF-8", "Shift_JIS");
 $html = str_replace(array("<!--[title]-->", "<!--[content]-->"), array(trim($title), trim($content)), file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_HTML));
 header("HTTP/1.0 200 OK");
 header("Cache-Control: no-cache");
@@ -99,10 +97,9 @@ function get_ofxform($fi) {
 	$ret .= "<h3><a href=\"" . $fi["home"] . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . $fi["name"] . "</a></h3>\r\n";
 	$ret .= "<form method=\"post\" action=\"./server.php?fiid=" . $fi["fiid"] . "\" enctype=\"application/x-www-form-urlencoded\" accept-charset=\"Shift_JIS\" class=\"ofxform\" onsubmit=\"return exec_ofxform(this);\">\r\n";
 	$ret .= "<dl>\r\n";
-	$forms = parse_csv($fi["form"]);
-	foreach($forms[0] as $form) {
-		$defs = parse_csv($fi[$form]);
-		list($text, $attr) = $defs[0];
+	$forms = explode("|", $fi["form"]);
+	foreach($forms as $form) {
+		list($text, $attr) = explode("|", $fi[$form], 2);
 		$attr = strtolower($attr);
 		switch($attr) {
 		case "text":
@@ -112,11 +109,11 @@ function get_ofxform($fi) {
 			$attr = "text";
 			break;
 		}
-		$ret .= "<dt>" . mb_htmlspecialchars($text) . "</dt>\r\n";
-		$ret .= "<dd><input type=\"" . $attr . "\" name=\"" . $fi["fiid"] . "_" . mb_htmlspecialchars($form) . "\" value=\"\" size=\"16\" maxlength=\"256\" class=\"ofxinput\" /></dd>\r\n";
+		$ret .= "<dt>" . $text . "</dt>\r\n";
+		$ret .= "<dd><input type=\"" . $attr . "\" name=\"" . $fi["fiid"] . "_" . $form . "\" value=\"\" size=\"16\" maxlength=\"256\" class=\"ofxinput\" /></dd>\r\n";
 	}
 	$ret .= "</dl>\r\n";
-	$ret .= "<div class=\"ofximage\"><input type=\"hidden\" name=\"fiid\" value=\"" . $fi["fiid"] . "\" /><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_1.gif\" width=\"107\" height=\"40\" alt=\"We Support OFXƒƒS\" /><input type=\"image\" src=\"" . ENV_FILE_DIR_CLIENT . "btn_2.gif\" alt=\"–¾×‚ğƒ_ƒEƒ“ƒ[ƒh‚·‚é\" style=\"width: 152px; height: 40px;\" /><a href=\"" . ENV_FILE_DIR_CLIENT . "help.html#" . $fi["fiid"] . "\" class=\"ofxlink\" onclick=\"return help_ofxform(this);\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_5.gif\" width=\"61\" height=\"40\" alt=\"ƒwƒ‹ƒv\" /></a></div>\r\n";
+	$ret .= "<div class=\"ofximage\"><input type=\"hidden\" name=\"fiid\" value=\"" . $fi["fiid"] . "\" /><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_1.gif\" width=\"107\" height=\"40\" alt=\"We Support OFXãƒ­ã‚´\" /><input type=\"image\" src=\"" . ENV_FILE_DIR_CLIENT . "btn_2.gif\" alt=\"æ˜ç´°ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã™ã‚‹\" style=\"width: 152px; height: 40px;\" /><a href=\"" . ENV_FILE_DIR_CLIENT . "help.html#" . $fi["fiid"] . "\" class=\"ofxlink\" onclick=\"return help_ofxform(this);\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_5.gif\" width=\"61\" height=\"40\" alt=\"ãƒ˜ãƒ«ãƒ—\" /></a></div>\r\n";
 	$ret .= "</form>\r\n";
 	$ret .= "</div>\r\n";
 	$ret .= "\r\n";
