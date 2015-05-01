@@ -1,55 +1,55 @@
-ŠÖ”ƒŠƒtƒ@ƒŒƒ“ƒX
+é–¢æ•°ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹
 
-¡(boolean)env_dlog((string)$html, (string)$tag)
-yà–¾z
-ENV_BOOL_DEBUG‚ªtrue‚Ìê‡AƒfƒoƒbƒOƒƒO‚ğo—Í‚·‚éB
+â– (boolean)env_dlog((string)$html, (string)$tag)
+ã€èª¬æ˜ã€‘
+ENV_BOOL_DEBUGãŒtrueã®å ´åˆã€ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°ã‚’å‡ºåŠ›ã™ã‚‹ã€‚
 
-¡(array)get_fi_settings((string)$fiid = "") {
-yà–¾z
-INIƒtƒ@ƒCƒ‹‚æ‚è$fiidƒZƒNƒVƒ‡ƒ“‚Ì’è‹`‚ğæ“¾‚·‚éB
+â– (array)get_fi_settings((string)$fiid = "") {
+ã€èª¬æ˜ã€‘
+INIãƒ•ã‚¡ã‚¤ãƒ«ã‚ˆã‚Š$fiidã‚»ã‚¯ã‚·ãƒ§ãƒ³ã®å®šç¾©ã‚’å–å¾—ã™ã‚‹ã€‚
 
-¡(string)sess_encode((string)$str)
-yà–¾z
-$str‚æ‚èƒZƒbƒVƒ‡ƒ“•Û—p•¶š—ñ‚ğì¬‚·‚éB
+â– (string)sess_encode((string)$str)
+ã€èª¬æ˜ã€‘
+$strã‚ˆã‚Šã‚»ãƒƒã‚·ãƒ§ãƒ³ä¿æŒç”¨æ–‡å­—åˆ—ã‚’ä½œæˆã™ã‚‹ã€‚
 
-¡(string)sess_decode((string)$str)
-yà–¾z
-ƒZƒbƒVƒ‡ƒ“•Û—p•¶š—ñi$strj‚æ‚èŒ³ƒf[ƒ^‚ğæ“¾‚·‚éB
+â– (string)sess_decode((string)$str)
+ã€èª¬æ˜ã€‘
+ã‚»ãƒƒã‚·ãƒ§ãƒ³ä¿æŒç”¨æ–‡å­—åˆ—ï¼ˆ$strï¼‰ã‚ˆã‚Šå…ƒãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹ã€‚
 
-¡(string)mb_convert_uniqueid((string)$str)
-yà–¾z
-$str‚æ‚è32ƒoƒCƒg‚ÌˆêˆÓ‚È•¶š—ñ‚ğ¶¬‚·‚éB
+â– (string)mb_convert_uniqueid((string)$str)
+ã€èª¬æ˜ã€‘
+$strã‚ˆã‚Š32ãƒã‚¤ãƒˆã®ä¸€æ„ãªæ–‡å­—åˆ—ã‚’ç”Ÿæˆã™ã‚‹ã€‚
 
-¡(string)mb_convert_uniquename((string)$str)
-yà–¾z
-•¶š—ñi$strj‚ğ³‹K‰»‚·‚éB
+â– (string)mb_convert_uniquename((string)$str)
+ã€èª¬æ˜ã€‘
+æ–‡å­—åˆ—ï¼ˆ$strï¼‰ã‚’æ­£è¦åŒ–ã™ã‚‹ã€‚
 
-¡(string)mb_convert_string((string)$str)
-yà–¾z
-•¶šƒR[ƒh‚ğShift_JIS‚©‚çUTF-8‚Ö‚Æ•ÏŠ·‚·‚éB
+â– (string)mb_convert_string((string)$str)
+ã€èª¬æ˜ã€‘
+æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’Shift_JISã‹ã‚‰UTF-8ã¸ã¨å¤‰æ›ã™ã‚‹ã€‚
 
-¡(string)mb_htmlspecialchars((string)$str)
-yà–¾z
-“Áê•¶š‚ğXHTMLƒGƒ“ƒeƒBƒeƒB[‚ğ•ÏŠ·‚·‚éB
+â– (string)mb_htmlspecialchars((string)$str)
+ã€èª¬æ˜ã€‘
+ç‰¹æ®Šæ–‡å­—ã‚’XHTMLã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ãƒ¼ã‚’å¤‰æ›ã™ã‚‹ã€‚
 
-¡class ofxDOM
+â– class ofxDOM
 Copyright (C) 2012-2015 Hiromu Takahashi All Rights Reserved.
 mailto:hiromu2000@hotmail.com
 
-¡(string)parse_amount((string)$str)
-yà–¾z
-‹àŠz‚ğƒp[ƒX‚·‚éB
+â– (string)parse_amount((string)$str)
+ã€èª¬æ˜ã€‘
+é‡‘é¡ã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹ã€‚
 
-¡(string)parse_param((string)$str)
-yà–¾z
-ƒtƒH[ƒ€Œo—R‚Å‘—óM‚³‚ê‚éƒpƒ‰ƒ[ƒ^‚ğƒp[ƒX‚·‚éB
-¦urlencode()‚âurldecode()‚Å•ÏŠ·‚³‚ê‚È‚¢•¶š—ñ‚à•ÏŠ·‚·‚éB
+â– (string)parse_param((string)$str)
+ã€èª¬æ˜ã€‘
+ãƒ•ã‚©ãƒ¼ãƒ çµŒç”±ã§é€å—ä¿¡ã•ã‚Œã‚‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹ã€‚
+â€»urlencode()ã‚„urldecode()ã§å¤‰æ›ã•ã‚Œãªã„æ–‡å­—åˆ—ã‚‚å¤‰æ›ã™ã‚‹ã€‚
 
-¡(array)parse_tag((string)$html, (string)$tag, (boolean)$recursive)
-yà–¾z
-w’è‚³‚ê‚½ŠJnƒ^ƒO‚©‚çI—¹ƒ^ƒO‚Ü‚Å‚ÌHTMLA‚¨‚æ‚Ñƒ^ƒO‚Ì‘®«‚ğæ“¾‚·‚éB
-$recursive‚ªtrue‚Ìê‡Aƒ^ƒO‚Ì“ü‚êq“à•”‚àÄ‹A“I‚Éæ“¾‚·‚éB
-y—áz
+â– (array)parse_tag((string)$html, (string)$tag, (boolean)$recursive)
+ã€èª¬æ˜ã€‘
+æŒ‡å®šã•ã‚ŒãŸé–‹å§‹ã‚¿ã‚°ã‹ã‚‰çµ‚äº†ã‚¿ã‚°ã¾ã§ã®HTMLã€ãŠã‚ˆã³ã‚¿ã‚°ã®å±æ€§ã‚’å–å¾—ã™ã‚‹ã€‚
+$recursiveãŒtrueã®å ´åˆã€ã‚¿ã‚°ã®å…¥ã‚Œå­å†…éƒ¨ã‚‚å†å¸°çš„ã«å–å¾—ã™ã‚‹ã€‚
+ã€ä¾‹ã€‘
 $html = "<select name=\"abc\" class=\"x\"><option value=\"0\" selected=\"selected\">0</option><option value=\"1\">1</option></select>" . "<SELECT NAME=\"def\" CLASS=\"Y\"><OPTION value=\"AAA\" selected>aaa</OPTION><option value=\"bbb\">BBB</option></select><br>";
 $tag = "select";
 parse_tag($html, $tag) = array(2) {
@@ -73,10 +73,10 @@ parse_tag($html, $tag) = array(2) {
   }
 }
 
-¡(array)parse_tag_attributes((string)$html, (string)$tag)
-yà–¾z
-w’è‚³‚ê‚½ƒ^ƒO‚Ì‘®«‚ğæ“¾‚·‚éB
-y—áz
+â– (array)parse_tag_attributes((string)$html, (string)$tag)
+ã€èª¬æ˜ã€‘
+æŒ‡å®šã•ã‚ŒãŸã‚¿ã‚°ã®å±æ€§ã‚’å–å¾—ã™ã‚‹ã€‚
+ã€ä¾‹ã€‘
 $html = "<input type=\"text\" name=\"abc\" value=\"\" />" . "<Input type=HIDDEN NAME='def'value=\"xyz\">";
 $tag = "input";
 parse_tag_attributes($html, $tag) = array(2) {
@@ -101,10 +101,10 @@ parse_tag_attributes($html, $tag) = array(2) {
 }
 
 
-¡(integer)parse_tag_search((array)$tags, (string)$key, (string)$value)
-yà–¾z
-w’è‚³‚ê‚½ƒ^ƒO”z—ñ‚æ‚è‘®«‚ªˆê’vi$key=$valuej‚·‚éƒ^ƒO‚Ì”z—ñ”Ô†‚ğæ“¾‚·‚éB
-y—áz
+â– (integer)parse_tag_search((array)$tags, (string)$key, (string)$value)
+ã€èª¬æ˜ã€‘
+æŒ‡å®šã•ã‚ŒãŸã‚¿ã‚°é…åˆ—ã‚ˆã‚Šå±æ€§ãŒä¸€è‡´ï¼ˆ$key=$valueï¼‰ã™ã‚‹ã‚¿ã‚°ã®é…åˆ—ç•ªå·ã‚’å–å¾—ã™ã‚‹ã€‚
+ã€ä¾‹ã€‘
 $tags = array();
 $tags[0] = array("type" => "text", "name" => "abc", "value" => "", "innerHTML" => "");
 $tags[1] = array("type" => "hidden", "name" => "def", "value" => "xyz", "innerHTML" => "");
@@ -112,15 +112,15 @@ $key = "name";
 $value = "def";
 parse_tag_search($tags, $key, $value) = int(1)
 
-¡(array)parse_header((string)$http, (string)$head)
-yà–¾z
-$head‚Éˆê’v‚·‚éHTTPƒwƒbƒ_[‚Ì”z—ñ‚ğæ“¾‚·‚éB
+â– (array)parse_header((string)$http, (string)$head)
+ã€èª¬æ˜ã€‘
+$headã«ä¸€è‡´ã™ã‚‹HTTPãƒ˜ãƒƒãƒ€ãƒ¼ã®é…åˆ—ã‚’å–å¾—ã™ã‚‹ã€‚
 
-¡(array)parse_uri((string)$uri_next, (array)$uris = array())
-yà–¾z
-$uri_next‚ğ$uris‚©‚ç‚Ìâ‘ÎE‘Š‘ÎƒpƒXURI‚Æ‚µ‚Äƒp[ƒX‚·‚éB
-PHP‚Ì•W€ŠÖ”parse_url()‚ÆˆÙ‚È‚èAƒNƒGƒŠ[‚Í"query"‚Å‚Í‚È‚­A"path"‚ÉŠÜ‚ß‚Ä•Ô‹p‚·‚éB
-y—áz
+â– (array)parse_uri((string)$uri_next, (array)$uris = array())
+ã€èª¬æ˜ã€‘
+$uri_nextã‚’$urisã‹ã‚‰ã®çµ¶å¯¾ãƒ»ç›¸å¯¾ãƒ‘ã‚¹URIã¨ã—ã¦ãƒ‘ãƒ¼ã‚¹ã™ã‚‹ã€‚
+PHPã®æ¨™æº–é–¢æ•°parse_url()ã¨ç•°ãªã‚Šã€ã‚¯ã‚¨ãƒªãƒ¼ã¯"query"ã§ã¯ãªãã€"path"ã«å«ã‚ã¦è¿”å´ã™ã‚‹ã€‚
+ã€ä¾‹ã€‘
 $uri_next = "../global.htm?lang=en";
 $uris = array();
 $uris["scheme"] = "http";
@@ -135,35 +135,35 @@ parse_uri($uri_next, $uris) = array(3) {
   string(19) "/global.htm?lang=en"
 }
 
-¡(array)parse_csv((string)$csv, (string)$delimiter = ",", (string)$enclosure = "\"")
-yà–¾z
-CSVŒ`®‚Ìƒf[ƒ^‚ğƒp[ƒX‚·‚éB
+â– (array)parse_csv((string)$csv, (string)$delimiter = ",", (string)$enclosure = "\"")
+ã€èª¬æ˜ã€‘
+CSVå½¢å¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹ã€‚
 
-¡(string)http11((string)$method, (string)$protocol, (string)$host, (integer)$port = 0, (string)$page = "/", (string)$query = "", (string)$basic = "", (string)$cookie = "", (boolean)$autoconv = true, (string)$ua = ENV_PRODUCT_UA, (string)$fr = "", (string)$referer = "")
-yà–¾z
-HTTP/1.1ƒvƒƒgƒRƒ‹‚ÅƒAƒNƒZƒX‚·‚éB
+â– (string)http11((string)$method, (string)$protocol, (string)$host, (integer)$port = 0, (string)$page = "/", (string)$query = "", (string)$basic = "", (string)$cookie = "", (boolean)$autoconv = true, (string)$ua = ENV_PRODUCT_UA, (string)$fr = "", (string)$referer = "")
+ã€èª¬æ˜ã€‘
+HTTP/1.1ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã§ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹ã€‚
 
-¡(string)http11_fread_blocking((resource)$fp, (integer)$len)
-yà–¾z
-Chunked‚Ìƒf[ƒ^‚ğfread‚Å“Ç‚İ‚İ‚·‚éÛAw’èƒTƒCƒY–¢–‚µ‚©æ“¾‚Å‚«‚È‚¢ê‡‚ª‚ ‚é‚Ì‚ğ‰ü‘P‚·‚éB
+â– (string)http11_fread_blocking((resource)$fp, (integer)$len)
+ã€èª¬æ˜ã€‘
+Chunkedã®ãƒ‡ãƒ¼ã‚¿ã‚’freadã§èª­ã¿è¾¼ã¿ã™ã‚‹éš›ã€æŒ‡å®šã‚µã‚¤ã‚ºæœªæº€ã—ã‹å–å¾—ã§ããªã„å ´åˆãŒã‚ã‚‹ã®ã‚’æ”¹å–„ã™ã‚‹ã€‚
 
-¡(string)update_cookie((array)$memories, (array)$heads, (string)$cookie)
-yà–¾z
-$memories‚É‘¶İ‚·‚éƒL[‚ğ$heads‚æ‚è’T‚µA$cookie‚Ì’l‚ğXV‚·‚éB
+â– (string)update_cookie((array)$memories, (array)$heads, (string)$cookie)
+ã€èª¬æ˜ã€‘
+$memoriesã«å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼ã‚’$headsã‚ˆã‚Šæ¢ã—ã€$cookieã®å€¤ã‚’æ›´æ–°ã™ã‚‹ã€‚
 
-¡(string)convert_ofx((string)$ofx)
-yà–¾z
-OFX 1.0.2‚©‚çOFX 2.1.1‚Ö‚Æ®Œ`‚·‚éB
+â– (string)convert_ofx((string)$ofx)
+ã€èª¬æ˜ã€‘
+OFX 1.0.2ã‹ã‚‰OFX 2.1.1ã¸ã¨æ•´å½¢ã™ã‚‹ã€‚
 
-¡(string)generate_ofx((string)$status, (string)$str = ENV_STR_OFX_NODATA, (string)$cook = "", (string)$akey = "")
-yà–¾z
-ƒeƒ“ƒvƒŒ[ƒg‚æ‚èOFX 2.1.1‚ğ¶¬‚·‚éB
+â– (string)generate_ofx((string)$status, (string)$str = ENV_STR_OFX_NODATA, (string)$cook = "", (string)$akey = "")
+ã€èª¬æ˜ã€‘
+ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚ˆã‚ŠOFX 2.1.1ã‚’ç”Ÿæˆã™ã‚‹ã€‚
 
-¡(string)generate_html((string)$settings, (array)$resp)
-yà–¾z
-ƒeƒ“ƒvƒŒ[ƒg‚æ‚èHTML‚ğ¶¬‚·‚éB
+â– (string)generate_html((string)$settings, (array)$resp)
+ã€èª¬æ˜ã€‘
+ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚ˆã‚ŠHTMLã‚’ç”Ÿæˆã™ã‚‹ã€‚
 
-¡(string)get_http_status((integer)$code)
-yà–¾z
-$code‚É‡’v‚·‚éHTTP/1.1ƒXƒe[ƒ^ƒXƒR[ƒh‚Ì•¶š—ñ‚ğæ“¾‚·‚éB
+â– (string)get_http_status((integer)$code)
+ã€èª¬æ˜ã€‘
+$codeã«åˆè‡´ã™ã‚‹HTTP/1.1ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚³ãƒ¼ãƒ‰ã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹ã€‚
 
