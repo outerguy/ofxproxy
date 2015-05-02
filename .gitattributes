@@ -19,3 +19,5 @@
 *.bat	eol=crlf
 *.ini	eol=crlf
 *.xml	eol=crlf
+
+*.inc linguist-language=PHP
