@@ -6,7 +6,11 @@ ENV_BOOL_DEBUGがtrueの場合、デバッグログを出力する。
 
 ■(array)get_fi_settings((string)$fiid = "") {
 【説明】
-INIファイルより$fiidセクションの定義を取得する。
+XMLファイルより$fiidセクションの定義を取得する。
+
+■(string)mb_htmlspecialchars((string)$str)
+【説明】
+特殊文字をXHTMLエンティティーを変換する。
 
 ■(string)sess_encode((string)$str)
 【説明】
@@ -26,11 +30,7 @@ $strより32バイトの一意な文字列を生成する。
 
 ■(string)mb_convert_string((string)$str)
 【説明】
-文字コードをShift_JISからUTF-8へと変換する。
-
-■(string)mb_htmlspecialchars((string)$str)
-【説明】
-特殊文字をXHTMLエンティティーを変換する。
+文字エンコーディングをShift_JISからUTF-8へと変換する。
 
 ■class ofxDOM
 Copyright (C) 2012-2015 Hiromu Takahashi All Rights Reserved.
@@ -39,6 +39,10 @@ mailto:hiromu2000@hotmail.com
 ■(string)parse_amount((string)$str)
 【説明】
 金額をパースする。
+
+■(string)parse_date((string)$str)
+【説明】
+日付をパースする。
 
 ■(string)parse_param((string)$str)
 【説明】
@@ -99,7 +103,6 @@ parse_tag_attributes($html, $tag) = array(2) {
     string(3) "xyz"
   }
 }
-
 
 ■(integer)parse_tag_search((array)$tags, (string)$key, (string)$value)
 【説明】

@@ -1,7 +1,7 @@
 <?php
 /*
 OFXProxy
-server.php: ƒƒOƒCƒ“î•ñ‚ðŽó‚¯Žæ‚Á‚Ä‹à—Z‹@ŠÖ–ˆ‚Ìˆ—‚ðŽÀs‚·‚é
+server.php: ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã‚’å—ã‘å–ã£ã¦é‡‘èžæ©Ÿé–¢æ¯Žã®å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹
 Copyright (C) 2012-2015 OFFICE OUTERGUY. All rights reserved.
 mailto:contact@beatrek.com
 Dual-licensed under the GNU AGPLv3 and Beatrek Origin License.

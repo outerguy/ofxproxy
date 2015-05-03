@@ -1,7 +1,7 @@
 <?php
 /*
 OFXProxy
-common.inc: ’è”E‹¤’ÊŠÖ”‚ğ’è‹`‚·‚é
+common.inc: å®šæ•°ãƒ»å…±é€šé–¢æ•°ã‚’å®šç¾©ã™ã‚‹
 Copyright (C) 2008-2015 OFFICE OUTERGUY. All rights reserved.
 mailto:contact@beatrek.com
 Dual-licensed under the GNU AGPLv3 and Beatrek Origin License.
@@ -13,15 +13,15 @@ Licensed under the GNU AGPLv3.
 */
 
 define("ENV_PRODUCT_CODENAME", "PURSE");
-define("ENV_PRODUCT_VERSION", "1.0");
+define("ENV_PRODUCT_VERSION", "1.1");
 define("ENV_PRODUCT_FAMILY", "OFXProxy");
 define("ENV_PRODUCT_COMMENT", "+https://github.com/outerguy/ofxproxy/");
 define("ENV_PRODUCT_ID", ENV_PRODUCT_CODENAME . "/" . ENV_PRODUCT_VERSION);
 define("ENV_PRODUCT_UA", "Mozilla/5.0 (compatible; " . ENV_PRODUCT_ID . (defined("ENV_PRODUCT_FAMILY") == true && ENV_PRODUCT_FAMILY != ""? "; " . ENV_PRODUCT_FAMILY: "") . (defined("ENV_PRODUCT_COMMENT") == true && ENV_PRODUCT_COMMENT != ""? "; " . ENV_PRODUCT_COMMENT: "") . ")");
 
-define("ENV_BOOL_DEBUG", false); // ŠJ”­ÒŒü‚¯iƒfƒoƒbƒOj‹@”\‚ğ—LŒø‚Æ‚·‚é‚©”Û‚©
-define("ENV_BOOL_PENDING_DETAIL", true); // iƒNƒŒƒWƒbƒgƒJ[ƒh‚Ìj–¢Šm’è–¾×‚ğo—Í‚·‚é‚©”Û‚©
-define("ENV_BOOL_ADD_RISKBASE", true); // ƒŠƒXƒNƒx[ƒX”FØ¬Œ÷A‹à—Z‹@ŠÖ‚ÉOFXProxy‚ÌÚ‘±î•ñ‚ğ“o˜^‚·‚é‚©”Û‚©
+define("ENV_BOOL_DEBUG", false); // é–‹ç™ºè€…å‘ã‘ï¼ˆãƒ‡ãƒãƒƒã‚°ï¼‰æ©Ÿèƒ½ã‚’æœ‰åŠ¹ã¨ã™ã‚‹ã‹å¦ã‹
+define("ENV_BOOL_PENDING_DETAIL", true); // ï¼ˆã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰ã®ï¼‰æœªç¢ºå®šæ˜ç´°ã‚’å‡ºåŠ›ã™ã‚‹ã‹å¦ã‹
+define("ENV_BOOL_ADD_RISKBASE", true); // ãƒªã‚¹ã‚¯ãƒ™ãƒ¼ã‚¹èªè¨¼æˆåŠŸæ™‚ã€é‡‘èæ©Ÿé–¢ã«OFXProxyã®æ¥ç¶šæƒ…å ±ã‚’ç™»éŒ²ã™ã‚‹ã‹å¦ã‹
 
 define("ENV_NUM_STATUS_SUCCESS", 200);
 define("ENV_NUM_STATUS_ADDITION", 202);
@@ -40,7 +40,7 @@ define("ENV_FILE_DIR_SERVER", "./server/");
 define("ENV_FILE_DIR_COMMON", "./common/");
 define("ENV_FILE_DIR_LOG", "./log/");
 
-define("ENV_FILE_XML_FI", "fi.xml");
+define("ENV_FILE_TEMPLATE_FI", "fi.xml");
 define("ENV_FILE_TEMPLATE_HTML", "template.html");
 define("ENV_FILE_TEMPLATE_OFX", "ofx.xml");
 
@@ -50,24 +50,24 @@ define("ENV_FILE_EXT_LOG", ".log");
 
 define("ENV_STR_SESSION_PADDING", " ");
 
-define("ENV_STR_ACCTTYPE_SAVINGS", "SAVINGS"); // •’Ê—a‹àŒûÀ
-define("ENV_STR_ACCTTYPE_CHECKING", "CHECKING"); // “–À—a‹àŒûÀ
+define("ENV_STR_ACCTTYPE_SAVINGS", "SAVINGS"); // æ™®é€šé é‡‘å£åº§
+define("ENV_STR_ACCTTYPE_CHECKING", "CHECKING"); // å½“åº§é é‡‘å£åº§
 
-define("ENV_STR_DATE_TODAY", date("Ymd")); // –{“ú
-define("ENV_STR_DATE_PASTDAY", date("Ymd", strtotime(date("Y-m-1") . " -1 month"))); // ‘OŒ1“ú
+define("ENV_STR_DATE_TODAY", date("Ymd")); // æœ¬æ—¥
+define("ENV_STR_DATE_PASTDAY", date("Ymd", strtotime(date("Y-m-1") . " -1 month"))); // å‰æœˆ1æ—¥
 
-define("ENV_STR_OFX_CURRENCY_JPY", "JPY"); // ’Ê‰İ
-define("ENV_STR_OFX_TZ", "000000[+9:JST]"); // •ª•bEƒ^ƒCƒ€ƒ][ƒ“
-define("ENV_STR_OFX_NODATA", "<!-- NO DATA -->"); // ‹ó
+define("ENV_STR_OFX_CURRENCY_JPY", "JPY"); // é€šè²¨
+define("ENV_STR_OFX_TZ", "000000[+9:JST]"); // æ™‚åˆ†ç§’ãƒ»ã‚¿ã‚¤ãƒ ã‚¾ãƒ¼ãƒ³
+define("ENV_STR_OFX_NODATA", "<!-- NO DATA -->"); // ç©º
 
-define("ENV_STR_OFX_STOCK", "STOCK"); // Š”®
-define("ENV_STR_OFX_FUND", "MF"); // “Š‘M‘õ
-define("ENV_STR_OFX_DEBT", "DEBT"); // ÂŒ”
-define("ENV_STR_OFX_CASH", "CASH"); // —a‚è‹à
-define("ENV_STR_OFX_BUY", "BUY"); // ”ƒ
-define("ENV_STR_OFX_SELL", "SELL"); // ”„
-define("ENV_STR_OFX_REINVEST", "REINVEST"); // Ä“Š‘
-define("ENV_STR_OFX_MEMO", "-"); // ƒƒ‚‚ÌƒfƒtƒHƒ‹ƒg’l
+define("ENV_STR_OFX_STOCK", "STOCK"); // æ ªå¼
+define("ENV_STR_OFX_FUND", "MF"); // æŠ•è³‡ä¿¡è¨—
+define("ENV_STR_OFX_DEBT", "DEBT"); // å‚µåˆ¸
+define("ENV_STR_OFX_CASH", "CASH"); // é ã‚Šé‡‘
+define("ENV_STR_OFX_BUY", "BUY"); // è²·
+define("ENV_STR_OFX_SELL", "SELL"); // å£²
+define("ENV_STR_OFX_REINVEST", "REINVEST"); // å†æŠ•è³‡
+define("ENV_STR_OFX_MEMO", "-"); // ãƒ¡ãƒ¢ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
 
 define("ENV_STR_OFX_TRNTYPE_CREDIT", "CREDIT"); // Generic credit
 define("ENV_STR_OFX_TRNTYPE_DEBIT", "DEBIT"); // Generic debit
@@ -87,27 +87,27 @@ define("ENV_STR_OFX_TRNTYPE_DIRECTDEBIT", "DIRECTDEBIT"); // Merchant initiated 
 define("ENV_STR_OFX_TRNTYPE_REPEATPMT", "REPEATPMT"); // Repeating payment/standing order
 define("ENV_STR_OFX_TRNTYPE_OTHER", "OTHER"); // Other
 
-define("ENV_STR_OFX_BROKER_BANK", "BANK"); // ‹âs
-define("ENV_STR_OFX_BROKER_CREDITCARD", "CREDITCARD"); // ƒNƒŒƒWƒbƒgƒJ[ƒh
-define("ENV_STR_OFX_BROKER_INVESTMENT", "INVSTMT"); // ØŒ”
-define("ENV_STR_OFX_BROKER_PREPAID", "PREPAID"); // ‘O•¥®’ •[
+define("ENV_STR_OFX_BROKER_BANK", "BANK"); // éŠ€è¡Œ
+define("ENV_STR_OFX_BROKER_CREDITCARD", "CREDITCARD"); // ã‚¯ãƒ¬ã‚¸ãƒƒãƒˆã‚«ãƒ¼ãƒ‰
+define("ENV_STR_OFX_BROKER_INVESTMENT", "INVSTMT"); // è¨¼åˆ¸
+define("ENV_STR_OFX_BROKER_PREPAID", "PREPAID"); // å‰æ‰•å¼å¸³ç¥¨
 
 define("ENV_STR_OFX_SEVERITY_INFO", "INFO"); // Informational only
 define("ENV_STR_OFX_SEVERITY_WARN", "WARN"); // Some problem with the request occurred but a valid response still present
 define("ENV_STR_OFX_SEVERITY_ERROR", "ERROR"); // A problem severe enough that response could not be made
 
-define("ENV_STR_OFX_CODE_STOCK", "JP:SIC"); // ØŒ”î•ñƒZƒ“ƒ^[
+define("ENV_STR_OFX_CODE_STOCK", "JP:SIC"); // è¨¼åˆ¸æƒ…å ±ã‚»ãƒ³ã‚¿ãƒ¼
 define("ENV_STR_OFX_CODE_FUND", "JP:ITAJ"); // The Investment Trusts Association, Japan
 define("ENV_STR_OFX_CODE_HC", "JP:HC"); // PURSE Hashed Code
 
-define("ENV_STR_OFX_CODE_SUCCESS", "0"); // ¬Œ÷
-define("ENV_STR_OFX_CODE_ADDITION", "3000"); // ’Ç‰Á”FØ
-define("ENV_STR_OFX_CODE_FAILURE", "15500"); // ”FØƒGƒ‰[
-define("ENV_STR_OFX_CODE_MAINTENANCE", "16503"); // ƒƒ“ƒeƒiƒ“ƒXƒGƒ‰[
-define("ENV_STR_OFX_CODE_CAUTION", "15511"); // î•ñæ“¾ƒGƒ‰[
+define("ENV_STR_OFX_CODE_SUCCESS", "0"); // æˆåŠŸ
+define("ENV_STR_OFX_CODE_ADDITION", "3000"); // è¿½åŠ èªè¨¼
+define("ENV_STR_OFX_CODE_FAILURE", "15500"); // èªè¨¼ã‚¨ãƒ©ãƒ¼
+define("ENV_STR_OFX_CODE_MAINTENANCE", "16503"); // ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ã‚¨ãƒ©ãƒ¼
+define("ENV_STR_OFX_CODE_CAUTION", "15511"); // æƒ…å ±å–å¾—ã‚¨ãƒ©ãƒ¼
 
 define("ENV_CHR_SEPARATOR", "\t");
-define("ENV_CHR_CONCATENATOR", "@");
+define("ENV_CHR_CONCATENATOR", "ã€€");
 
 function env_dlog($str) {
 	if(ENV_BOOL_DEBUG == true) {
@@ -117,28 +117,29 @@ function env_dlog($str) {
 	return ENV_BOOL_DEBUG;
 }
 
+// XMLãƒ•ã‚¡ã‚¤ãƒ«ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹é‡‘èæ©Ÿé–¢ã®æƒ…å ±ã‚’æ¡ä»¶ã«å¿œã˜ã¦å–ã‚Šå‡ºã™
 function get_fi_settings($fiid = "") {
 	$ret = array();
-	$xml = simplexml_load_file(ENV_FILE_DIR_COMMON . ENV_FILE_XML_FI);
+	$xml = simplexml_load_file(ENV_FILE_DIR_COMMON . ENV_FILE_TEMPLATE_FI);
 	$settings = array();
 	foreach($xml->fi as $fi) {
-		$id = (string)$fi["id"];
-		$settings[$id]["fiid"] = (string)$id;
-		$settings[$id]["type"] = (string)$fi->type;
-		$settings[$id]["name"] = (string)$fi->name;
-		$settings[$id]["home"] = (string)$fi->home;
-		if(isset($fi["code"]) == true) $settings[$id]["code"] = (string)$fi["code"];
-		if(isset($fi->additional) == true) $settings[$id]["additional"] = implode("|", array((string)$fi->additional, (string)$fi->additional["input"], (string)$fi->additional["type"]));
+		$id = mb_htmlspecialchars((string)$fi["id"]);
+		$settings[$id]["fiid"] = mb_htmlspecialchars((string)$id);
+		$settings[$id]["type"] = mb_htmlspecialchars((string)$fi->type);
+		$settings[$id]["name"] = mb_htmlspecialchars((string)$fi->name);
+		$settings[$id]["home"] = mb_htmlspecialchars((string)$fi->home);
+		if(isset($fi["code"]) == true) $settings[$id]["code"] = mb_htmlspecialchars((string)$fi["code"]);
+		if(isset($fi->additional) == true) $settings[$id]["additional"] = mb_htmlspecialchars(implode("|", array((string)$fi->additional, (string)$fi->additional["input"], (string)$fi->additional["type"])));
 		
 		$inputs = array();
 		foreach($fi->form->input as $input) {
-			array_push($inputs, (string)$input["id"]);
-			$settings[$id][(string)$input["id"]] = (string)$input . "|" . (string)$input["type"];
+			array_push($inputs, mb_htmlspecialchars((string)$input["id"]));
+			$settings[$id][(string)$input["id"]] = mb_htmlspecialchars(implode("|", array((string)$input, (string)$input["type"])));
 		}
 		$settings[$id]["form"] = implode("|", $inputs);
 		
 		if(isset($fi->itemlist) == true) foreach($fi->itemlist->item as $item) {
-			$settings[$id][(string)$item["id"]] = (string)$item;
+			$settings[$id][(string)$item["id"]] = mb_htmlspecialchars((string)$item);
 		}
 	}
 	
@@ -148,6 +149,10 @@ function get_fi_settings($fiid = "") {
 		$ret = $settings;
 	}
 	return $ret;
+}
+
+function mb_htmlspecialchars($str) {
+	return htmlspecialchars($str, ENT_COMPAT | ENT_XML1, "UTF-8");
 }
 
 function sess_encode($str) {
@@ -163,15 +168,11 @@ function mb_convert_uniqueid($str) {
 }
 
 function mb_convert_uniquename($str) {
-	return strtoupper(mb_convert_kana(str_replace(array("@", "|", "E"), array("", "", ""), $str), "ask"));
+	return strtoupper(mb_convert_kana(str_replace(array("ã€€", "ï¼", "ãƒ»"), array("", "", ""), $str), "ask"));
 }
 
 function mb_convert_string($str) {
-	return htmlspecialchars(mb_convert_encoding($str, "UTF-8", "Shift_JIS"));
-}
-
-function mb_htmlspecialchars($str) {
-	return htmlspecialchars($str, ENT_COMPAT | ENT_XHTML, "Shift_JIS");
+	return str_replace("âˆ’", "ï¼", mb_convert_encoding($str, "UTF-8", "Shift_JIS"));
 }
 
 class ofxDOM {
@@ -179,9 +180,9 @@ class ofxDOM {
 	private $banktranlist;
 	private $stmtrs;
 	
-	// XML DOMƒcƒŠ[‚ğì¬‚·‚é
+	// XML DOMãƒ„ãƒªãƒ¼ã‚’ä½œæˆã™ã‚‹
 	// $ofxdom = new ofxDOM();
-	// ƒAƒJƒEƒ“ƒg‚h‚c‚ğw’è‚·‚éê‡
+	// ã‚¢ã‚«ã‚¦ãƒ³ãƒˆï¼©ï¼¤ã‚’æŒ‡å®šã™ã‚‹å ´åˆ
 	// $ofxdom = new ofxDOM($acctid);
 	public function __construct() {
 		$this->dom = new DOMDocument('1.0', 'UTF-8');
@@ -200,7 +201,7 @@ class ofxDOM {
 		$node = $stmtrs->appendChild($dom->createElement('CURDEF'));
 		$node->appendChild($dom->createTextNode(ENV_STR_OFX_CURRENCY_JPY));
 		$acctfrom = $stmtrs->appendChild($dom->createElement('CCACCTFROM'));
-		// ACCTID‚ğ‘‚«‚Ş 
+		// ACCTIDã‚’æ›¸ãè¾¼ã‚€ 
 		$node = $acctfrom->appendChild($dom->createElement('ACCTID'));
 		$arg = func_get_args();
 		if(func_num_args() == 1) {
@@ -212,7 +213,7 @@ class ofxDOM {
 		$this->banktranlist = $stmtrs->appendChild($dom->createElement('BANKTRANLIST'));
 	}
 	
-	// –¾×‚ğ‘‚«‚Ş
+	// æ˜ç´°ã‚’æ›¸ãè¾¼ã‚€
 	public function setTrans($cds) {
 		$acctid = $this->dom->getElementsByTagName('ACCTID')->item(0)->nodeValue;
 		$dom = $this->dom;
@@ -229,7 +230,7 @@ class ofxDOM {
 			$node = $stmttrn->appendChild($dom->createElement('TRNAMT'));
 			$node->appendChild($dom->createTextNode($cd["TRNAMT"]));
 			
-			// ‚±‚Ì“_‚Å‚ÍAFITID‚Í¿‹Œ‚Æƒf[ƒ^í•Ê‚Ì‚İ
+			// ã“ã®æ™‚ç‚¹ã§ã¯ã€FITIDã¯è«‹æ±‚æœˆã¨ãƒ‡ãƒ¼ã‚¿ç¨®åˆ¥ã®ã¿
 			$node = $stmttrn->appendChild($dom->createElement('FITID'));
 			$node->appendChild($dom->createTextNode($cd["FITID"]));
 			
@@ -271,7 +272,7 @@ class ofxDOM {
 		$last_dtposted = "";
 		foreach ($this->getTrans() as $tran) {
 			$dtposted = $tran->getElementsByTagName('DTPOSTED')->item(0)->nodeValue;
-			// ”NŒ“ú‚Ì‚İ‚ğ’Šo
+			// å¹´æœˆæ—¥ã®ã¿ã‚’æŠ½å‡º
 			$dtposted = substr($dtposted, 0, 8);
 			if ($dtposted == $last_dtposted) $cd_num++; else $cd_num = 0;
 			$fitid = $tran->getElementsByTagName('FITID')->item(0);
@@ -280,26 +281,26 @@ class ofxDOM {
 		}
 	}
 	public function getXML() {
-		// FITID‚ğdã‚°‚é
+		// FITIDã‚’ä»•ä¸Šã’ã‚‹
 		$this->setFitid();
 		$this->dom->formatOutput = true;
 		$xml = $this->dom->saveXML();
-		// XML‚Ìƒwƒbƒ_‚Ííœ
+		// XMLã®ãƒ˜ãƒƒãƒ€ã¯å‰Šé™¤
 		return substr($xml, strpos($xml, '?>') + 2);
 	}
 }
 
-// ‹àŠz‚ğƒp[ƒX‚·‚é
+// é‡‘é¡ã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹
 function parse_amount($str) {
-	$buf = str_replace(array(",", "¢", "£", "ç", "–œ"), array("", "-", "-", "000", "0000"), trim($str));
+	$buf = str_replace(array(",", "â–³", "â–²", "åƒ", "ä¸‡"), array("", "-", "-", "000", "0000"), trim($str));
 	$ret = preg_replace("/[^0-9\-\.]/", "", $buf);
 	if($ret == "") $ret = "0";
 	return $ret;
 }
 
-// “ú•t‚ğƒp[ƒX‚·‚é
+// æ—¥ä»˜ã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹
 function parse_date($str) {
-	list($dy, $dm, $dd, $dummy) = explode("/", str_replace(array("”N", "Œ", "“ú", "-", ".", "T", " "), array("/", "/", "/", "/", "/", "/", "/"), trim($str)), 4);
+	list($dy, $dm, $dd, $dummy) = explode("/", str_replace(array("å¹´", "æœˆ", "æ—¥", "-", ".", "T", " "), array("/", "/", "/", "/", "/", "/", "/"), trim($str)), 4);
 	$dy = (integer)$dy;
 	if($dy < 1988) $dy += 1988;
 	$dm = (integer)$dm;
@@ -307,61 +308,61 @@ function parse_date($str) {
 	return sprintf("%04d%02d%02d", $dy, $dm, $dd);
 }
 
-// ƒtƒH[ƒ€Œo—R‚Å‘—óM‚³‚ê‚éƒpƒ‰ƒ[ƒ^‚ğƒp[ƒX‚·‚é
+// ãƒ•ã‚©ãƒ¼ãƒ çµŒç”±ã§é€å—ä¿¡ã•ã‚Œã‚‹ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹
 function parse_param($str) {
 	return str_replace(array("%2A", "%40"), array("*", "@"), urlencode(urldecode(str_replace("+", "%2B", $str))));
 }
 
-// w’è‚³‚ê‚½ŠJnƒ^ƒO‚©‚çI—¹ƒ^ƒO‚Ü‚Å‚ÌHTMLA‚¨‚æ‚Ñƒ^ƒO‚Ì‘®«‚ğæ“¾‚·‚é
+// æŒ‡å®šã•ã‚ŒãŸé–‹å§‹ã‚¿ã‚°ã‹ã‚‰çµ‚äº†ã‚¿ã‚°ã¾ã§ã®HTMLã€ãŠã‚ˆã³ã‚¿ã‚°ã®å±æ€§ã‚’å–å¾—ã™ã‚‹
 function parse_tag($html, $tag, $recursive = false) {
 	$ret = array();
 	$buf = $html;
 	
-	// HTMLˆÈŠO‚Ìƒ^ƒO“à‚Ì—v‘f‚ğæ‚èœ‚­
+	// HTMLä»¥å¤–ã®ã‚¿ã‚°å†…ã®è¦ç´ ã‚’å–ã‚Šé™¤ã
 	$strips = array("script", "style");
 	foreach($strips as $strip) if($strip != strtolower($tag)) $buf = preg_replace("/<" . preg_quote($strip) . "(?!\w)[^>]*>.*?<\/" . preg_quote($strip) . ">/ims", "", $buf);
 	
 	$c = preg_match_all("/<(\/?)" . preg_quote($tag) . "((?!\w)[^>]*)>/ims", $buf, $matches);
 	if(array_search("/", $matches[1]) !== false) {
-		// I—¹ƒ^ƒO‚ª‘¶İ‚·‚éê‡
-		$bufs = array(); // ƒ^ƒO‚ÌƒlƒXƒg\‘¢‚ğ•Û‚·‚é”z—ñ
-		$nest = 0; // ƒ^ƒO‚ÌƒlƒXƒg”
-		$cnt = 0; // ŠJnƒ^ƒO‚ÆI—¹ƒ^ƒO‚ÌƒZƒbƒg”
-		$pos = 0; // ŒŸõŠJnˆÊ’ui•¶š—ñ‚Ìæ“ª‚©‚ç‚ÌƒoƒCƒg”j
-		// u<!-- tag></tag -->v‚Ì‚æ‚¤‚ÈI—¹ƒ^ƒOiƒRƒƒ“ƒgj‚ğœ‚­
+		// çµ‚äº†ã‚¿ã‚°ãŒå­˜åœ¨ã™ã‚‹å ´åˆ
+		$bufs = array(); // ã‚¿ã‚°ã®ãƒã‚¹ãƒˆæ§‹é€ ã‚’ä¿æŒã™ã‚‹é…åˆ—
+		$nest = 0; // ã‚¿ã‚°ã®ãƒã‚¹ãƒˆæ•°
+		$cnt = 0; // é–‹å§‹ã‚¿ã‚°ã¨çµ‚äº†ã‚¿ã‚°ã®ã‚»ãƒƒãƒˆæ•°
+		$pos = 0; // æ¤œç´¢é–‹å§‹ä½ç½®ï¼ˆæ–‡å­—åˆ—ã®å…ˆé ­ã‹ã‚‰ã®ãƒã‚¤ãƒˆæ•°ï¼‰
+		// ã€Œ<!-- tag></tag -->ã€ã®ã‚ˆã†ãªçµ‚äº†ã‚¿ã‚°ï¼ˆã‚³ãƒ¡ãƒ³ãƒˆï¼‰ã‚’é™¤ã
 		for($i = 0; $i < $c; $i++) if($matches[2][$i] != "--") {
 			if($matches[1][$i] == "") {
-				// ŠJnƒ^ƒO‚Ìê‡AŠJnƒ^ƒO‚ğæ“¾‚·‚é
+				// é–‹å§‹ã‚¿ã‚°ã®å ´åˆã€é–‹å§‹ã‚¿ã‚°ã‚’å–å¾—ã™ã‚‹
 				$bufs[$nest]["tag"] = $matches[0][$i];
-				// ŠJnƒ^ƒO‚ÌŠJnˆÊ’u‚ğæ“¾‚·‚é
+				// é–‹å§‹ã‚¿ã‚°ã®é–‹å§‹ä½ç½®ã‚’å–å¾—ã™ã‚‹
 				$bufs[$nest]["start"] = strpos($buf, $bufs[$nest]["tag"], $pos);
-				// ŒŸõŠJnˆÊ’u‚ğŠJnƒ^ƒO‚ÌI—¹ˆÊ’u‚ÉXV‚·‚é
+				// æ¤œç´¢é–‹å§‹ä½ç½®ã‚’é–‹å§‹ã‚¿ã‚°ã®çµ‚äº†ä½ç½®ã«æ›´æ–°ã™ã‚‹
 				$pos = $bufs[$nest]["start"] + strlen($bufs[$nest]["tag"]);
 				$bufs[$nest]["pos"] = $pos;
-				// ƒlƒXƒg”‚ğ‘‚â‚·
+				// ãƒã‚¹ãƒˆæ•°ã‚’å¢—ã‚„ã™
 				$nest++;
 			} else {
-				// I—¹ƒ^ƒO‚Ìê‡AƒlƒXƒg”‚ğŒ¸‚ç‚·
+				// çµ‚äº†ã‚¿ã‚°ã®å ´åˆã€ãƒã‚¹ãƒˆæ•°ã‚’æ¸›ã‚‰ã™
 				$nest--;
-				// ŒŸõŠJnˆÊ’u‚ğXV‚·‚é
+				// æ¤œç´¢é–‹å§‹ä½ç½®ã‚’æ›´æ–°ã™ã‚‹
 				$pos = strpos($buf, $matches[0][$i], $pos);
 				if(($recursive == false && $nest == 0) || $recursive == true) {
-					// $recursive‚ªfalse‚©‚ÂƒlƒXƒg”‚ª0A‚Ü‚½‚Í$recursive‚ªtrue‚Ìê‡
-					// ŠJnƒ^ƒO‚Ì‘®«‚ğæ“¾‚·‚é
+					// $recursiveãŒfalseã‹ã¤ãƒã‚¹ãƒˆæ•°ãŒ0ã€ã¾ãŸã¯$recursiveãŒtrueã®å ´åˆ
+					// é–‹å§‹ã‚¿ã‚°ã®å±æ€§ã‚’å–å¾—ã™ã‚‹
 					$ret[$cnt] = parse_tag_attributes($bufs[$nest]["tag"], $tag);
-					// ŠJnƒ^ƒO‚©‚çI—¹ƒ^ƒO‚Ü‚Å‚Ì’†g‚ğØ‚èo‚·
+					// é–‹å§‹ã‚¿ã‚°ã‹ã‚‰çµ‚äº†ã‚¿ã‚°ã¾ã§ã®ä¸­èº«ã‚’åˆ‡ã‚Šå‡ºã™
 					$ret[$cnt]["innerHTML"] = substr($buf, $bufs[$nest]["pos"], ($pos - $bufs[$nest]["pos"]));
-					// ŒŸõŠJnˆÊ’u‚ğI—¹ƒ^ƒO‚ÌI—¹ˆÊ’u‚ÉXV‚·‚é
+					// æ¤œç´¢é–‹å§‹ä½ç½®ã‚’çµ‚äº†ã‚¿ã‚°ã®çµ‚äº†ä½ç½®ã«æ›´æ–°ã™ã‚‹
 					$pos += strlen($matches[0][$i]);
-					// ŠJnƒ^ƒO‚ÆI—¹ƒ^ƒO‚ğŠÜ‚ß‚ÄØ‚èo‚·
+					// é–‹å§‹ã‚¿ã‚°ã¨çµ‚äº†ã‚¿ã‚°ã‚’å«ã‚ã¦åˆ‡ã‚Šå‡ºã™
 					$ret[$cnt]["match"] = substr($buf, $bufs[$nest]["start"], ($pos - $bufs[$nest]["start"]));
-					// ŠJnƒ^ƒO‚ÆI—¹ƒ^ƒO‚ÌƒZƒbƒg”‚ğ‘‚â‚·
+					// é–‹å§‹ã‚¿ã‚°ã¨çµ‚äº†ã‚¿ã‚°ã®ã‚»ãƒƒãƒˆæ•°ã‚’å¢—ã‚„ã™
 					$cnt++;
 				}
 			}
 		}
 	} else {
-		// I—¹ƒ^ƒO‚ª‘¶İ‚µ‚È‚¢ê‡AŠJnƒ^ƒO‚Ì‘®«‚ğæ“¾‚·‚é
+		// çµ‚äº†ã‚¿ã‚°ãŒå­˜åœ¨ã—ãªã„å ´åˆã€é–‹å§‹ã‚¿ã‚°ã®å±æ€§ã‚’å–å¾—ã™ã‚‹
 		for($i = 0; $i < $c; $i++) {
 			$ret[$i] = parse_tag_attributes($matches[0][$i], $tag);
 			$ret[$i]["innerHTML"] = "";
@@ -371,33 +372,33 @@ function parse_tag($html, $tag, $recursive = false) {
 	return $ret;
 }
 
-// w’è‚³‚ê‚½ƒ^ƒO‚Ì‘®«‚ğæ“¾‚·‚é
+// æŒ‡å®šã•ã‚ŒãŸã‚¿ã‚°ã®å±æ€§ã‚’å–å¾—ã™ã‚‹
 function parse_tag_attributes($html, $tag) {
 	$ret = array();
 	
-	// ƒ^ƒO‚Ì‘®«‚ğØ‚èo‚·
+	// ã‚¿ã‚°ã®å±æ€§ã‚’åˆ‡ã‚Šå‡ºã™
 	$s = strlen($tag) + 1;
 	$e = strlen($html) - $s - 1;
 	$buf = substr($html, $s, $e);
 	
-	// ƒ^ƒuE‰üsƒR[ƒh‚ğƒXƒy[ƒX‚É’uŠ·‚·‚é
+	// ã‚¿ãƒ–ãƒ»æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’ã‚¹ãƒšãƒ¼ã‚¹ã«ç½®æ›ã™ã‚‹
 	$buf = str_replace(array("\t", "\r", "\n"), array(" ", " ", " "), $buf);
 	
-	// =‚Ì‘OŒã‚ÌƒXƒy[ƒX‚ğæ‚èœ‚­
+	// =ã®å‰å¾Œã®ã‚¹ãƒšãƒ¼ã‚¹ã‚’å–ã‚Šé™¤ã
 	$buf = preg_replace("/\s*=\s*/", "=", $buf);
 	
-	// ‰E•Ó‚ª""‚©''‚ÅŠ‡‚ç‚ê‚Ä‚¢‚È‚¢ê‡A––”ö‚É‰üsƒR[ƒh‚ğ’Ç‰Á‚·‚é
+	// å³è¾ºãŒ""ã‹''ã§æ‹¬ã‚‰ã‚Œã¦ã„ãªã„å ´åˆã€æœ«å°¾ã«æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹
 	$buf = preg_replace("/(=)([^\'\"])([^\\1\s]++)/", "\\1\\2\\3\n", $buf);
 	
-	// ‰E•Ó‚ª""‚©''‚ÅŠ‡‚ç‚ê‚Ä‚¢‚éê‡Aæ‚èœ‚«A––”ö‚É‰üsƒR[ƒh‚ğ’Ç‰Á‚·‚é
+	// å³è¾ºãŒ""ã‹''ã§æ‹¬ã‚‰ã‚Œã¦ã„ã‚‹å ´åˆã€å–ã‚Šé™¤ãã€æœ«å°¾ã«æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’è¿½åŠ ã™ã‚‹
 	$buf = preg_replace("/(=)([\'\"])([^\\2]*?)\\2/", "\\1\\3\n", $buf);
 	
-	// ‰üsƒR[ƒh‚Å•ªŠ„‚·‚é
+	// æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã§åˆ†å‰²ã™ã‚‹
 	$kvs = explode("\n", $buf);
 	foreach($kvs as $kv) {
 		$kv = ltrim($kv);
 		if($kv != "") {
-			// key=value‚ğ’Šo‚·‚éikey‚Í‰p¬•¶š‚É•ÏŠ·‚·‚éj
+			// key=valueã‚’æŠ½å‡ºã™ã‚‹ï¼ˆkeyã¯è‹±å°æ–‡å­—ã«å¤‰æ›ã™ã‚‹ï¼‰
 			$p = strpos($kv, "=");
 			if($p !== false) {
 				// key=value
@@ -405,7 +406,7 @@ function parse_tag_attributes($html, $tag) {
 				$v = substr($kv, $p + 1);
 				if($v === false) $v = "";
 			} else {
-				// value‚ª‘¶İ‚µ‚È‚¢ê‡Akey=key‚Æ‚·‚é
+				// valueãŒå­˜åœ¨ã—ãªã„å ´åˆã€key=keyã¨ã™ã‚‹
 				$k = strtolower($kv);
 				$v = $k;
 			}
@@ -415,7 +416,7 @@ function parse_tag_attributes($html, $tag) {
 	return $ret;
 }
 
-// w’è‚³‚ê‚½ƒ^ƒO”z—ñ‚æ‚è‘®«‚ªˆê’vi$key=$valuej‚·‚éƒ^ƒO‚Ì”z—ñ”Ô†‚ğæ“¾‚·‚é
+// æŒ‡å®šã•ã‚ŒãŸã‚¿ã‚°é…åˆ—ã‚ˆã‚Šå±æ€§ãŒä¸€è‡´ï¼ˆ$key=$valueï¼‰ã™ã‚‹ã‚¿ã‚°ã®é…åˆ—ç•ªå·ã‚’å–å¾—ã™ã‚‹
 function parse_tag_search($tags, $key, $value) {
 	$ret = -1;
 	$c = count($tags);
@@ -426,7 +427,7 @@ function parse_tag_search($tags, $key, $value) {
 	return $ret;
 }
 
-// $head‚Éˆê’v‚·‚éHTTPƒwƒbƒ_[‚Ì”z—ñ‚ğæ“¾‚·‚é
+// $headã«ä¸€è‡´ã™ã‚‹HTTPãƒ˜ãƒƒãƒ€ãƒ¼ã®é…åˆ—ã‚’å–å¾—ã™ã‚‹
 function parse_header($http, $head) {
 	$ret = array();
 	$c = preg_match_all("/" . preg_quote($head) . "[\s\t]*:[\s\t]*([^\r\n]*)/i", $http, $matches);
@@ -434,7 +435,7 @@ function parse_header($http, $head) {
 	return $ret;
 }
 
-// $uri_next‚ğ$uris‚©‚ç‚Ìâ‘ÎE‘Š‘ÎƒpƒXURI‚Æ‚µ‚Äƒp[ƒX‚·‚é
+// $uri_nextã‚’$urisã‹ã‚‰ã®çµ¶å¯¾ãƒ»ç›¸å¯¾ãƒ‘ã‚¹URIã¨ã—ã¦ãƒ‘ãƒ¼ã‚¹ã™ã‚‹
 function parse_uri($uri_next, $uris = array()) {
 	$ret = $uris;
 	if(isset($ret["path"]) == false) {
@@ -461,7 +462,7 @@ function parse_uri($uri_next, $uris = array()) {
 	return $ret;
 }
 
-// CSVŒ`®‚Ìƒf[ƒ^‚ğƒp[ƒX‚·‚é
+// CSVå½¢å¼ã®ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ‘ãƒ¼ã‚¹ã™ã‚‹
 function parse_csv($csv, $delimiter = ",", $enclosure = "\"") {
 	$ret = array();
 	
@@ -499,7 +500,7 @@ function parse_csv($csv, $delimiter = ",", $enclosure = "\"") {
 	return $ret;
 }
 
-// HTTP/1.1ƒvƒƒgƒRƒ‹‚ÅƒAƒNƒZƒX‚·‚é
+// HTTP/1.1ãƒ—ãƒ­ãƒˆã‚³ãƒ«ã§ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹
 function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", $basic = "", $cookie = "", $autoconv = true, $ua = ENV_PRODUCT_UA, $fr = "", $referer = "") {
 	$ret = "";
 	$head = "";
@@ -507,7 +508,7 @@ function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", 
 	
 	$chunked = false;
 	
-	// Ú‘±î•ñ‚ğŒˆ’è‚·‚é
+	// æ¥ç¶šæƒ…å ±ã‚’æ±ºå®šã™ã‚‹
 	switch($protocol) {
 	case "https":
 		$prefix = "ssl://";
@@ -520,7 +521,7 @@ function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", 
 	if($port == 0) $port = getservbyname($protocol, "tcp");
 	$querystring = ($method == "GET" && $query != "")? "?" . $query: "";
 	
-	// ƒ\ƒPƒbƒg‚ğŠJ‚­
+	// ã‚½ã‚±ãƒƒãƒˆã‚’é–‹ã
 	$fp = fsockopen($prefix . $host, $port, $errno, $errstr);
 	if($fp) {
 		fputs($fp, $method . " " . $page . $querystring . " HTTP/1.1\r\n");
@@ -542,7 +543,7 @@ function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", 
 			fputs($fp, "\r\n");
 		}
 		
-		// Chunkedƒwƒbƒ_[‚ğˆ—‚·‚é
+		// Chunkedãƒ˜ãƒƒãƒ€ãƒ¼ã‚’å‡¦ç†ã™ã‚‹
 		while(!feof($fp)) {
 			$line = @fgets($fp, ENV_NUM_HTTP11_SIZE_BUF);
 			if(preg_match("/^[Tt][Rr][Aa][Nn][Ss][Ff][Ee][Rr]-[Ee][Nn][Cc][Oo][Dd][Ii][Nn][Gg][\s\t]*:[\s\t]*[Cc][Hh][Uu][Nn][Kk][Ee][Dd]/", $line)) {
@@ -553,7 +554,7 @@ function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", 
 			if($line == "\r\n") break;
 		}
 		
-		// ƒ{ƒfƒB[‚ğˆ—‚·‚é
+		// ãƒœãƒ‡ã‚£ãƒ¼ã‚’å‡¦ç†ã™ã‚‹
 		if($chunked == true) {
 			while(!feof($fp)) {
 				$chunk = fgets($fp, ENV_NUM_HTTP11_SIZE_BUF);
@@ -566,10 +567,10 @@ function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", 
 			while(!feof($fp)) $body .= http11_fread_blocking($fp, ENV_NUM_HTTP11_SIZE_BUF);
 		}
 		
-		// ƒ\ƒPƒbƒg‚ğ’Ô‚¶‚é
+		// ã‚½ã‚±ãƒƒãƒˆã‚’é–‰ã˜ã‚‹
 		fclose($fp);
 		
-		// HTML‚©‚ÂShift_JISˆÈŠO‚Ìê‡‚Í•¶šƒR[ƒh‚ğ•ÏŠ·‚·‚é
+		// HTMLã‹ã¤UTF-8ä»¥å¤–ã®å ´åˆã¯æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’å¤‰æ›ã™ã‚‹
 		$mime = (preg_match("/[Cc][Oo][Nn][Tt][Ee][Nn][Tt]-[Tt][Yy][Pp][Ee][\s\t]*:[\s\t]*([^;\r\n]+)/", $head, $matches) > 0? strtolower($matches[1]): "");
 		if($autoconv == true && $mime == "text/html") {
 			$metas = parse_tag($body, "meta");
@@ -583,17 +584,19 @@ function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", 
 					break;
 				}
 			}
+			if($enc == "") $enc = "Shift_JIS";
+			if(strtoupper($enc) == "X-SJIS") $enc = "Shift_JIS";
 			switch(strtoupper($enc)) {
 			case "UTF-7":
-			case "UTF-8":
 			case "UTF-16":
 			case "UTF-32":
 			case "EUC-JP":
 			case "ISO-2022-JP":
-				$body = str_replace($enc, "Shift_JIS", mb_convert_encoding($body, "Shift_JIS", strtoupper($enc)));
-				$head = rtrim($head) . "\r\nX-PURSE-Original-Encoding: " . $enc . "\r\n\r\n";
 			case "SHIFT_JIS":
 			case "SJIS":
+				$body = str_replace(array($enc, "âˆ’"), array("UTF-8", "ï¼"), mb_convert_encoding($body, "UTF-8", strtoupper($enc)));
+				$head = rtrim($head) . "\r\nX-PURSE-Original-Encoding: " . $enc . "\r\n\r\n";
+			case "UTF-8":
 			default:
 				break;
 			}
@@ -604,7 +607,7 @@ function http11($method, $protocol, $host, $port = 0, $page = "/", $query = "", 
 	return $ret;
 }
 
-// Chunked‚Ìƒf[ƒ^‚ğfread‚Å“Ç‚İ‚İ‚·‚éÛAw’èƒTƒCƒY–¢–‚µ‚©æ“¾‚Å‚«‚È‚¢ê‡‚ª‚ ‚é‚Ì‚ğ‰ü‘P‚·‚é
+// Chunkedã®ãƒ‡ãƒ¼ã‚¿ã‚’freadã§èª­ã¿è¾¼ã¿ã™ã‚‹éš›ã€æŒ‡å®šã‚µã‚¤ã‚ºæœªæº€ã—ã‹å–å¾—ã§ããªã„å ´åˆãŒã‚ã‚‹ã®ã‚’æ”¹å–„ã™ã‚‹
 function http11_fread_blocking($fp, $len) {
 	$ret = "";
 	$size = $len;
@@ -616,7 +619,7 @@ function http11_fread_blocking($fp, $len) {
 	return $ret;
 }
 
-// $memories‚É‘¶İ‚·‚éƒL[‚ğ$heads‚æ‚è’T‚µA$cookie‚Ì’l‚ğXV‚·‚é
+// $memoriesã«å­˜åœ¨ã™ã‚‹ã‚­ãƒ¼ã‚’$headsã‚ˆã‚Šæ¢ã—ã€$cookieã®å€¤ã‚’æ›´æ–°ã™ã‚‹
 function update_cookie($memories, $heads, $cookie) {
 	$ret = "";
 	$cookies = array();
@@ -638,30 +641,30 @@ function update_cookie($memories, $heads, $cookie) {
 	return $ret;
 }
 
-// OFX 1.0.2‚©‚çOFX 2.1.1‚Ö‚Æ®Œ`‚·‚é
+// OFX 1.0.2ã‹ã‚‰OFX 2.1.1ã¸ã¨æ•´å½¢ã™ã‚‹
 function convert_ofx($ofx) {
 	$ret = "";
 	$head = "";
 	$body = "";
 	
-	// ƒwƒbƒ_[‚Æƒ{ƒfƒB[‚É•ªŠ„‚·‚é
+	// ãƒ˜ãƒƒãƒ€ãƒ¼ã¨ãƒœãƒ‡ã‚£ãƒ¼ã«åˆ†å‰²ã™ã‚‹
 	$i = strpos($ofx, "<OFX>");
 	if($i !== false) $head = substr($ofx, 0, $i - 1); else $i = 0;
 	$j = strpos($ofx, "</OFX>");
 	if($j !== false) $body = substr($ofx, $i, $j + 6);
 	
-	// ƒwƒbƒ_[‚ğ‰ğÍ‚·‚é
+	// ãƒ˜ãƒƒãƒ€ãƒ¼ã‚’è§£æã™ã‚‹
 	$heads = array();
 	if(preg_match_all("/([A-Z]+):([^\r\n]+)/", $head, $matches) > 0) for($i = 0; $i < count($matches[0]); $i++) $heads[$matches[1][$i]] = $matches[2][$i];
 	if($heads["OFXHEADER"] == "100" && $heads["VERSION"] == "102" && $heads["DATA"] == "OFXSGML") {
-		// OFX 1.0.2‚Ìê‡
+		// OFX 1.0.2ã®å ´åˆ
 		if($heads["ENCODING"] != "" && $heads["ENCODING"] != "UTF-8") $body = mb_convert_encoding($body, "UTF-8", $heads["ENCODING"]);
 		$ret .= preg_replace("/<OFX>[\w\W]*<\/OFX>[\r\n]+?/", "", file_get_contents(ENV_FILE_DIR_COMMON . ENV_FILE_TEMPLATE_OFX));
 		
-		// ‰üsƒR[ƒh‚ğ“ˆê‚·‚é
+		// æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’çµ±ä¸€ã™ã‚‹
 		$body = str_replace(array("\r\n", "\r"), array("\n", "\n"), $body);
 		
-		// s“ª‚Ìƒ^ƒu‚ğíœ‚µAs“ª‚É‚È‚¢ƒ^ƒO‚ğs“ª‚ÉˆÚ“®‚µA‹ós‚ğíœ‚·‚é
+		// è¡Œé ­ã®ã‚¿ãƒ–ã‚’å‰Šé™¤ã—ã€è¡Œé ­ã«ãªã„ã‚¿ã‚°ã‚’è¡Œé ­ã«ç§»å‹•ã—ã€ç©ºè¡Œã‚’å‰Šé™¤ã™ã‚‹
 		$body = preg_replace(array("/\n\t+/", "/([^\n])</", "/\n{2,}/"), array("\n", "\\1\n<", "\n"), $body);
 		
 		$bodys = explode("\n", $body);
@@ -669,16 +672,16 @@ function convert_ofx($ofx) {
 		for($i = 0; $i < $c; $i++) {
 			$bodys[$i] = trim($bodys[$i]);
 			if(preg_match("/^<(\/)?([^>]+?)>(.*)$/", $bodys[$i], $matches) > 0) {
-				// ƒ^ƒO‚Ìê‡
+				// ã‚¿ã‚°ã®å ´åˆ
 				if($matches[1] == "/") {
-					// I—¹ƒ^ƒO‚Ìê‡
+					// çµ‚äº†ã‚¿ã‚°ã®å ´åˆ
 					if($i > 0 && strpos($bodys[$i - 1], "<" . $matches[2] . ">") === false) $ret .= $bodys[$i] . "\r\n";
 				} else {
-					// ŠJnƒ^ƒO‚Ìê‡
+					// é–‹å§‹ã‚¿ã‚°ã®å ´åˆ
 					$ret .= $bodys[$i] . ($matches[3] != ""? "</" . $matches[2] . ">": "") . "\r\n";
 				}
 			} else {
-				// ƒ^ƒOˆÈŠO‚Ìê‡
+				// ã‚¿ã‚°ä»¥å¤–ã®å ´åˆ
 				$ret .= $bodys[$i] . "\r\n";
 			}
 		}
@@ -686,10 +689,10 @@ function convert_ofx($ofx) {
 	return $ret;
 }
 
-// ƒeƒ“ƒvƒŒ[ƒg‚æ‚èOFX 2.1.1‚ğ¶¬‚·‚é
+// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚ˆã‚ŠOFX 2.1.1ã‚’ç”Ÿæˆã™ã‚‹
 function generate_ofx($status, $str = ENV_STR_OFX_NODATA, $cook = "", $akey = "") {
 	$now = ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ;
-	$org = mb_htmlspecialchars(mb_convert_string(ENV_PRODUCT_ID));
+	$org = mb_htmlspecialchars(ENV_PRODUCT_ID);
 	$content = trim($str);
 	$code = ENV_STR_OFX_CODE_SUCCESS;
 	$serverity = ENV_STR_OFX_SEVERITY_INFO;
@@ -700,7 +703,7 @@ function generate_ofx($status, $str = ENV_STR_OFX_NODATA, $cook = "", $akey = ""
 	
 	switch($status) {
 	case ENV_NUM_STATUS_SUCCESS:
-		// ‰½‚à‚µ‚È‚¢
+		// ä½•ã‚‚ã—ãªã„
 		break;
 	case ENV_NUM_STATUS_ADDITION:
 		$code = ENV_STR_OFX_CODE_ADDITION;
@@ -733,15 +736,15 @@ function generate_ofx($status, $str = ENV_STR_OFX_NODATA, $cook = "", $akey = ""
 	return str_replace(array("<!--[now]-->", "<!--[org]-->", "<!--[content]-->", "<!--[code]-->", "<!--[severity]-->", "<!--[message]-->", "<!--[mfachallengetrnrs]-->", "<!--[sesscookie]-->", "<!--[accesskey]-->"), array($now, $org, $content, $code, $severity, $message, $mfachallengetrnrs, $sesscookie, $accesskey), file_get_contents(ENV_FILE_DIR_COMMON . ENV_FILE_TEMPLATE_OFX));
 }
 
-// ƒeƒ“ƒvƒŒ[ƒg‚æ‚èHTML‚ğ¶¬‚·‚é
+// ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã‚ˆã‚ŠHTMLã‚’ç”Ÿæˆã™ã‚‹
 function generate_html($settings, $resp) {
 	$ret = "";
 	$str = "";
 	
 	switch($resp["status"]) {
 	case ENV_NUM_STATUS_ADDITION:
-		// ’Ç‰Á”FØ‰æ–Ê‚ğ¶¬‚·‚é
-		$title = "’Ç‰Á”FØ";
+		// è¿½åŠ èªè¨¼ç”»é¢ã‚’ç”Ÿæˆã™ã‚‹
+		$title = "è¿½åŠ èªè¨¼";
 		$addr = str_replace("?" . $_SERVER["QUERY_STRING"], "", $_SERVER["REQUEST_URI"]);
 		list($text, $attr, $type) = explode("|", $settings["additional"], 3);
 		$attr = strtolower($attr);
@@ -754,62 +757,60 @@ function generate_html($settings, $resp) {
 			$attr = "text";
 			break;
 		}
-		$str .= "<p>–{lŠm”F‚Ì‚½‚ßA" . mb_convert_encoding($settings["name"], "Shift_JIS", "UTF-8") . "‚æ‚è’Ç‰Á”FØ‚ğ‹‚ß‚ç‚ê‚Ä‚¢‚Ü‚·B</p>\r\n";
+		$str .= "<p>æœ¬äººç¢ºèªã®ãŸã‚ã€" . $settings["name"] . "ã‚ˆã‚Šè¿½åŠ èªè¨¼ã‚’æ±‚ã‚ã‚‰ã‚Œã¦ã„ã¾ã™ã€‚</p>\r\n";
 		$str .= "<form method=\"post\" action=\"" . $addr . "?fiid=" . $settings["fiid"] . "\" enctype=\"application/x-www-form-urlencoded\" accept-charset=\"UTF-8\" class=\"ofxform\" onsubmit=\"return exec_ofxform(this);\">\r\n";
 		$str .= "<dl>\r\n";
-		$str .= "<dt>’Ç‰Á”FØ</dt>\r\n";
+		$str .= "<dt>è¿½åŠ èªè¨¼</dt>\r\n";
 		if($type == "image") {
-			$str .= "<dd><img src=\"" . $resp["addition"] . "\" alt=\"‰æ‘œ\" /></dd>\r\n";
+			$str .= "<dd><img src=\"" . $resp["addition"] . "\" alt=\"ç”»åƒ\" /></dd>\r\n";
 		} else {
 			$str .= "<dd>" . $resp["addition"] . "</dd>\r\n";
 		}
-		$str .= "<dt>" . mb_convert_encoding($text, "Shift_JIS", "UTF-8") . "</dt>\r\n";
+		$str .= "<dt>" . $text . "</dt>\r\n";
 		$str .= "<dd><input type=\"" . $attr . "\" name=\"" . $resp["aid"] . "\" value=\"\" size=\"16\" maxlength=\"256\" class=\"ofxinput\" /><input type=\"hidden\" name=\"sesscookie\" value=\"" . $resp["sesscookie"] . "\" /><input type=\"hidden\" name=\"accesskey\" value=\"" . $resp["accesskey"] . "\" /></dd>\r\n";
 		$str .= "</dl>\r\n";
-		$str .= "<div class=\"ofximage\"><input type=\"hidden\" name=\"fiid\" value=\"" . $settings["fiid"] . "\" /><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_1.gif\" width=\"107\" height=\"40\" alt=\"We Support OFXƒƒS\" /><input type=\"image\" src=\"" . ENV_FILE_DIR_CLIENT . "btn_3.gif\" alt=\"‘±s‚·‚é\" style=\"width: 77px; height: 40px;\" /><a href=\"" . $addr . "\" class=\"ofxlink\" onclick=\"self.window.history.go(-" . $resp["sid"] . "); return false;\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_4.gif\" width=\"75\" height=\"40\" alt=\"’†~‚·‚é\" /></a><a href=\"" . ENV_FILE_DIR_CLIENT . "help.html#" . $settings["fiid"] . "\" class=\"ofxlink\" onclick=\"return help_ofxform(this);\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_5.gif\" width=\"61\" height=\"40\" alt=\"ƒwƒ‹ƒv\" /></a></div>\r\n";
+		$str .= "<div class=\"ofximage\"><input type=\"hidden\" name=\"fiid\" value=\"" . $settings["fiid"] . "\" /><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_1.gif\" width=\"107\" height=\"40\" alt=\"We Support OFXãƒ­ã‚´\" /><input type=\"image\" src=\"" . ENV_FILE_DIR_CLIENT . "btn_3.gif\" alt=\"ç¶šè¡Œã™ã‚‹\" style=\"width: 77px; height: 40px;\" /><a href=\"" . $addr . "\" class=\"ofxlink\" onclick=\"self.window.history.go(-" . $resp["sid"] . "); return false;\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_4.gif\" width=\"75\" height=\"40\" alt=\"ä¸­æ­¢ã™ã‚‹\" /></a><a href=\"" . ENV_FILE_DIR_CLIENT . "help.html#" . $settings["fiid"] . "\" class=\"ofxlink\" onclick=\"return help_ofxform(this);\" onkeypress=\"this.onclick();\"><img src=\"" . ENV_FILE_DIR_CLIENT . "btn_5.gif\" width=\"61\" height=\"40\" alt=\"ãƒ˜ãƒ«ãƒ—\" /></a></div>\r\n";
 		$str .= "</form>\r\n";
 		break;
 	case ENV_NUM_STATUS_FAILURE:
-		// ”FØƒGƒ‰[‰æ–Ê‚ğ¶¬‚·‚é
-		$title = "”FØƒGƒ‰[";
-		$str .= "<p>ƒƒOƒCƒ“‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B</p>\r\n";
-		$str .= "<p>ƒƒOƒCƒ“î•ñ‚Ì“à—e‚ğŠm”F‚µ‚½ŒãAÄs‚µ‚Ä‚­‚¾‚³‚¢B</p>\r\n";
+		// èªè¨¼ã‚¨ãƒ©ãƒ¼ç”»é¢ã‚’ç”Ÿæˆã™ã‚‹
+		$title = "èªè¨¼ã‚¨ãƒ©ãƒ¼";
+		$str .= "<p>ãƒ­ã‚°ã‚¤ãƒ³ã§ãã¾ã›ã‚“ã§ã—ãŸã€‚</p>\r\n";
+		$str .= "<p>ãƒ­ã‚°ã‚¤ãƒ³æƒ…å ±ã®å†…å®¹ã‚’ç¢ºèªã—ãŸå¾Œã€å†è©¦è¡Œã—ã¦ãã ã•ã„ã€‚</p>\r\n";
 		break;
 	case ENV_NUM_STATUS_MAINTENANCE:
-		// ƒƒ“ƒeƒiƒ“ƒXƒGƒ‰[‰æ–Ê‚ğ¶¬‚·‚é
-		$title = "ƒƒ“ƒeƒiƒ“ƒXƒGƒ‰[";
-		$str .= "<p>ƒVƒXƒeƒ€ƒƒ“ƒeƒiƒ“ƒX‰æ–Ê‚ª•\¦‚³‚ê‚½‚½‚ßAˆ—‚ğ’†’f‚µ‚Ü‚µ‚½B</p>\r\n";
-		$str .= "<p><a href=\"" . $settings["home"] . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . mb_convert_encoding($settings["name"], "Shift_JIS", "UTF-8") . "</a>‚ÌƒVƒXƒeƒ€ƒƒ“ƒeƒiƒ“ƒX‚ªI—¹‚µ‚½ŒãAÄs‚µ‚Ä‚­‚¾‚³‚¢B</p>\r\n";
+		// ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ã‚¨ãƒ©ãƒ¼ç”»é¢ã‚’ç”Ÿæˆã™ã‚‹
+		$title = "ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ã‚¨ãƒ©ãƒ¼";
+		$str .= "<p>ã‚·ã‚¹ãƒ†ãƒ ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ç”»é¢ãŒè¡¨ç¤ºã•ã‚ŒãŸãŸã‚ã€å‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã—ãŸã€‚</p>\r\n";
+		$str .= "<p><a href=\"" . $settings["home"] . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . $settings["name"] . "</a>ã®ã‚·ã‚¹ãƒ†ãƒ ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ãŒçµ‚äº†ã—ãŸå¾Œã€å†è©¦è¡Œã—ã¦ãã ã•ã„ã€‚</p>\r\n";
 		break;
 	case ENV_NUM_STATUS_CAUTION:
-		// î•ñæ“¾ƒGƒ‰[‰æ–Ê‚ğ¶¬‚·‚é
-		$title = "î•ñæ“¾ƒGƒ‰[";
-		$str .= "<p>ud—v‚È‚¨’m‚ç‚¹v“™‚Ì‰æ–Ê‚ª•\¦‚³‚ê‚½‚½‚ßAˆ—‚ğ’†’f‚µ‚Ü‚µ‚½B</p>\r\n";
-		$str .= "<p><a href=\"" . $settings["home"] . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . mb_convert_encoding($settings["name"], "Shift_JIS", "UTF-8") . "</a>‚ÉƒƒOƒCƒ“‚µA‰æ–Ê‚ğŠm”F‚µ‚½ŒãAÄs‚µ‚Ä‚­‚¾‚³‚¢B</p>\r\n";
+		// æƒ…å ±å–å¾—ã‚¨ãƒ©ãƒ¼ç”»é¢ã‚’ç”Ÿæˆã™ã‚‹
+		$title = "æƒ…å ±å–å¾—ã‚¨ãƒ©ãƒ¼";
+		$str .= "<p>ã€Œé‡è¦ãªãŠçŸ¥ã‚‰ã›ã€ç­‰ã®ç”»é¢ãŒè¡¨ç¤ºã•ã‚ŒãŸãŸã‚ã€å‡¦ç†ã‚’ä¸­æ–­ã—ã¾ã—ãŸã€‚</p>\r\n";
+		$str .= "<p><a href=\"" . $settings["home"] . "\" class=\"ofxlink\" onclick=\"return link_ofxform(this);\" onkeypress=\"this.onclick();\">" . $settings["name"] . "</a>ã«ãƒ­ã‚°ã‚¤ãƒ³ã—ã€ç”»é¢ã‚’ç¢ºèªã—ãŸå¾Œã€å†è©¦è¡Œã—ã¦ãã ã•ã„ã€‚</p>\r\n";
 		break;
 	case ENV_NUM_STATUS_SUCCESS:
 	case ENV_NUM_STATUS_NONE:
 	default:
-		// ‰½‚à‚µ‚È‚¢
+		// ä½•ã‚‚ã—ãªã„
 		break;
 	}
 	
 	if($str != "") {
 		if($resp["body"] != "") {
-			$str .= "<p><input type=\"button\" value=\"–ß‚é\" onclick=\"javascript: self.window.history.go(-1); return false;\" onkeypress=\"this.click();\" /></p>\r\n";
-			$str .= "<p><input type=\"button\" value=\"’Ç‰Áî•ñ\" onclick=\"javascript: self.document.getElementById(&quot;addmsg&quot;).style.display = &quot;block&quot;; this.style.display=&quot;none&quot;;\" onkeypress=\"this.click();\" /></p>\r\n";
+			$str .= "<p><input type=\"button\" value=\"æˆ»ã‚‹\" onclick=\"javascript: self.window.history.go(-1); return false;\" onkeypress=\"this.click();\" /></p>\r\n";
+			$str .= "<p><input type=\"button\" value=\"è¿½åŠ æƒ…å ±\" onclick=\"javascript: self.document.getElementById(&quot;addmsg&quot;).style.display = &quot;block&quot;; this.style.display=&quot;none&quot;;\" onkeypress=\"this.click();\" /></p>\r\n";
 			$str .= "<div id=\"addmsg\" style=\"display: none;\">\r\n";
 			$str .= "<pre style=\"color: #333333; font-family: monospace; line-height: 110%;\">" . mb_htmlspecialchars($resp["body"]) . "</pre>\r\n";
 			$str .= "</div>\r\n";
 		}
-		$title = mb_convert_encoding($title, "UTF-8", "Shift_JIS");
-		$str = mb_convert_encoding($str, "UTF-8", "Shift_JIS");
 		$ret = str_replace(array("<!--[title]-->", "<!--[content]-->"), array(trim($title), trim($str)), file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_HTML));
 	}
 	return $ret;
 }
 
-// $code‚É‡’v‚·‚éHTTP/1.1ƒXƒe[ƒ^ƒXƒR[ƒh‚Ì•¶š—ñ‚ğæ“¾‚·‚é
+// $codeã«åˆè‡´ã™ã‚‹HTTP/1.1ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚³ãƒ¼ãƒ‰ã®æ–‡å­—åˆ—ã‚’å–å¾—ã™ã‚‹
 function get_http_status($code) {
 	$status = "Unknown Status-code";
 	switch((integer)$code) {
@@ -993,7 +994,7 @@ function get_http_status($code) {
 		$status = "Network Authentication Required";
 		break;
 	default:
-		// ‰½‚à‚µ‚È‚¢
+		// ä½•ã‚‚ã—ãªã„
 		break;
 	}
 	return "HTTP/1.1 " . (string)$code . " " . $status;
