@@ -762,9 +762,9 @@ function generate_html($settings, $resp) {
 		$str .= "<dl>\r\n";
 		$str .= "<dt>追加認証</dt>\r\n";
 		if($type == "image") {
-			$str .= "<dd><img src=\"" . $resp["addition"] . "\" alt=\"画像\" /></dd>\r\n";
+			$str .= "<dd><img src=\"" . $resp["additional"] . "\" alt=\"画像\" /></dd>\r\n";
 		} else {
-			$str .= "<dd>" . $resp["addition"] . "</dd>\r\n";
+			$str .= "<dd>" . $resp["additional"] . "</dd>\r\n";
 		}
 		$str .= "<dt>" . $text . "</dt>\r\n";
 		$str .= "<dd><input type=\"" . $attr . "\" name=\"" . $resp["aid"] . "\" value=\"\" size=\"16\" maxlength=\"256\" class=\"ofxinput\" /><input type=\"hidden\" name=\"sesscookie\" value=\"" . $resp["sesscookie"] . "\" /><input type=\"hidden\" name=\"accesskey\" value=\"" . $resp["accesskey"] . "\" /></dd>\r\n";
