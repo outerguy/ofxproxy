@@ -1,0 +1,24 @@
+OFXProxyは、GNU AFFERO GENERAL PUBLIC LICENSE Version 3、および
+Beatrek Origin Licenseのデュアルライセンスに基づき提供いたします。
+
+ライセンスの詳細については、./LICENSE_GNU_AGPLv3.txt、および./LICENSE_BOL.txtを
+ご参照ください。
+
+
+./server.*, ./server/*.*:, ./client.*, ./client/*.*:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+上記ファイルは、GNU AFFERO GENERAL PUBLIC LICENSE Version 3、および
+Beatrek Origin Licenseのデュアルライセンスに基づき提供いたします。
+
+ライセンスの詳細については、./LICENSE_GNU_AGPLv3.txt、および./LICENSE_BOL.txtを
+ご参照ください。
+
+
+./common.*, ./common/*.*, ./index.*, ./README.txt, ./php*.ini, ./start_php.bat:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+上記ファイルは、GNU All-Permissive License、およびBeatrek Origin Licenseの
+デュアルライセンスに基づき提供いたします。
+
+ライセンスの詳細については、./LICENSE_GNU_APL.txt、および./LICENSE_BOL.txtを
+ご参照ください。
+

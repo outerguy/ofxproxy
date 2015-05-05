@@ -1,6 +1,0 @@
-OFXProxyは、GNU AFFERO GENERAL PUBLIC LICENSE Version 3、および
-Beatrek Origin Licenseのデュアルライセンスに基づき提供いたします。
-
-ライセンスの詳細については、LICENSE_GNU_AGPLv3.txt、およびLICENSE_BOL.txtを
-ご参照ください。
-

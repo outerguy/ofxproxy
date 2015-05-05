@@ -1,4 +1,4 @@
-関数リファレンス
+PHP関数インデックス
 
 ■(boolean)env_dlog((string)$html, (string)$tag)
 【説明】
@@ -26,7 +26,7 @@ $strより32バイトの一意な文字列を生成する。
 
 ■(string)mb_convert_uniquename((string)$str)
 【説明】
-文字列（$str）を正規化する。
+文字列を正規化する。
 
 ■(string)mb_convert_string((string)$str)
 【説明】

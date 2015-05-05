@@ -1,0 +1,13 @@
+<h2>追加認証</h2>
+<p>本人確認のため、<!--[name]-->より追加認証を求められています。</p>
+
+<h3><!--[name]--></h3>
+<form method="post" action="<!--[addr]-->" enctype="application/x-www-form-urlencoded" accept-charset="UTF-8" class="ofxform" onsubmit="return exec_ofxform(this);">
+<dl>
+<dt>追加認証</dt>
+<dd><!--[additional]--></dd>
+<dt><!--[text]--></dt>
+<dd><input type="<!--[attr]-->" name="<!--[aid]-->" value="" size="16" maxlength="256" class="ofxinput" /><input type="hidden" name="sesscookie" value="<!--[sesscookie]-->" /><input type="hidden" name="accesskey" value="<!--[accesskey]-->" /></dd>
+</dl>
+<div class="ofximage"><input type="hidden" name="fiid" value="<!--[fiid]-->" /><img src="./client/btn_1.gif" width="107" height="40" alt="We Support OFXロゴ" /><input type="image" src="./client/btn_3.gif" alt="続行する" style="width: 77px; height: 40px;" /><a href="<!--[addr]-->" class="ofxlink" onclick="self.window.history.go(-<!--[sid]-->); return false;" onkeypress="this.onclick();"><img src="./client/btn_4.gif" width="75" height="40" alt="中止する" /></a><a href="./client/help.html#<!--[fiid]-->" class="ofxlink" onclick="return help_ofxform(this);" onkeypress="this.onclick();"><img src="./client/btn_5.gif" width="61" height="40" alt="ヘルプ" /></a></div>
+</form>

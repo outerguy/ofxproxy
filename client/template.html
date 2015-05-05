@@ -15,67 +15,13 @@
 <meta name="msapplication-navbutton-color" content="#FF9900" />
 <meta name="msapplication-window" content="width=800; height=450" />
 <meta name="msapplication-tooltip" content="OFXProxyは、対応金融機関の口座情報をOFXファイルとしてダウンロードできるサービスです。" />
-<title><!--[title]--></title>
-<link rel="stylesheet" type="text/css" href="./client/default.css" />
+<title>OFXProxy</title>
+<link rel="stylesheet" type="text/css" href="./client/rule.css" />
 <link rel="icon" type="image/vnd.microsoft.icon" href="./client/icon.ico" />
 </head>
 <body>
-
-<h1><!--[title]--></h1>
-
+<h1>OFXProxy</h1>
 <!--[content]-->
-
-<script type="text/javascript">
-var flag_ofxform = false;
-load_cookie_ofxform();
-save_cookie_ofxform();
-function exec_ofxform(obj) {
-	var ret = false;
-	var fnc = function() {
-		flag_ofxform = false;
-	};
-	with(obj) {
-		if(flag_ofxform == true) {
-			alert("明細のダウンロードを開始するまで、しばらくお待ちください。");
-		} else {
-			self.window.setTimeout(fnc, 2000);
-			flag_ofxform = true;
-			ret = true;
-		}
-	}
-	return ret;
-}
-function link_ofxform(obj) {
-	with(obj) target = parentNode.id;
-	return true;
-}
-function help_ofxform(obj) {
-	obj.target = "help_ofxform";
-	return true;
-}
-function load_cookie_ofxform() {
-	var cookies = self.document.cookie.split("; ");
-	var i;
-	for(i = 0; i != cookies.length; i++) {
-		kvs = cookies[i].split("=", 2);
-		with(self.document) if(getElementById(kvs[0])) {
-			getElementById(kvs[0]).style.display = kvs[1];
-			getElementById(kvs[0] + "_hide").checked = (kvs[1] == "none"? true: false);
-		}
-	}
-	return true;
-}
-function save_cookie_ofxform() {
-	var inputs = self.document.getElementsByTagName("input");
-	var expire = new Date();
-	var i;
-	expire.setTime(expire.getTime() + 86400 * 60);
-	for(i in inputs) if(inputs[i].type == "checkbox") if(inputs[i].id != "all_hide") {
-		self.document.cookie = inputs[i].id.replace("_hide", "") + "=" + (inputs[i].checked == true? "none": "block") + "; expires=" + expire.toUTCString();
-	}
-	return true;
-}
-</script>
-
+<script type="text/javascript" src="./client.php"></script>
 </body>
 </html>
