@@ -9,8 +9,7 @@ Dual-licensed under the GNU All-Permissive License and Beatrek Origin License.
 require_once("./common.inc");
 require_once("./client.inc");
 
-// HTMLを取得する
-$html = file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_HTML);
+$fiid = $_GET["help"];
 
 // INIファイルに定義されている金融機関を整理する
 $banks = array();
@@ -38,16 +37,28 @@ foreach($fis as $fi) {
 	}
 }
 
+// HTMLを取得する
+$html = file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_HTML);
+
 $str = "";
 
-// デバッグ機能が有効の場合、デバッグHTMLを取得する
-if(ENV_BOOL_DEBUG == true) $str .= file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_DEBUG);
+if($fiid != "" && array_search($fiid, array_keys($fis)) !== false) {
+	// ヘルプを要求されている場合、ヘルプを生成する
+	$str .= "<h2 id=\"" . $fis[$fiid]["fiid"] . "\">" . $fis[$fiid]["name"] . "</h2>\r\n";
+	$str .= $fis[$fiid]["help"];
+	$str .= "<p><input type=\"button\" value=\"閉じる\" onclick=\"javascript: self.window.close(); return false;\" onkeypress=\"this.click();\" /></p>\r\n";
 
-// ホームHTMLを取得する
-$str .= file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_HOME);
+} else {
+	// デバッグ機能が有効の場合、デバッグHTMLを取得する
+	if(ENV_BOOL_DEBUG == true) $str .= file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_DEBUG);
 
-// 埋め込み文字列を置換する
-$str = str_replace(array("<!--[bank]-->", "<!--[creditcard]-->", "<!--[invstmt]-->", "<!--[prepaid]-->", "<!--[filist]-->"), array(trim(get_form($banks)), trim(get_form($creditcards)), trim(get_form($invstmts)), trim(get_form($prepaids)), trim(get_filist($fis))), $str);
+	// ホームHTMLを取得する
+	$str .= file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_HOME);
+
+	// 埋め込み文字列を置換する
+	$str = str_replace(array("<!--[bank]-->", "<!--[creditcard]-->", "<!--[invstmt]-->", "<!--[prepaid]-->", "<!--[filist]-->"), array(trim(get_form($banks)), trim(get_form($creditcards)), trim(get_form($invstmts)), trim(get_form($prepaids)), trim(get_filist($fis))), $str);
+}
+
 $html = str_replace("<!--[content]-->", trim($str), $html);
 
 // レスポンスを返す
