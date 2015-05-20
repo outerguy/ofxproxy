@@ -16,7 +16,7 @@ define("ENV_FILE_TEMPLATE_DEBUG", "debug.html");
 
 define("ENV_FILE_EXT_HTML", ".html");
 
-define("ENV_PRODUCT_CLIENT_VERSION", "1.1");
+define("ENV_PRODUCT_CLIENT_VERSION", "1.2");
 
 // フォームを生成する
 function get_form($fis) {
