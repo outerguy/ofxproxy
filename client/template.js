@@ -29,7 +29,7 @@ function fnc_load() {
 	var cdf = document.createDocumentFragment();
 	var tag_body = dom_get_tag("body")[0];
 	var title = dom_get_tag("title")[0].firstChild.nodeValue;
-	var tag_h2, tag_p, tag_a, tag_img, tag_hr;
+	var tag_h2, tag_p, tag_a;
 	
 	tag_h2 = dom_create_tag("h2", { "id": "version" });
 	tag_h2.appendChild(dom_create_text("バージョン情報"));
