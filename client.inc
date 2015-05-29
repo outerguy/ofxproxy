@@ -21,6 +21,7 @@ define("ENV_PRODUCT_CLIENT_VERSION", "1.2");
 // フォームを生成する
 function get_form($fis) {
 	$ret = "";
+	
 	foreach($fis as $fi) {
 		// フォームHTMLを取得する
 		$str = file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_FORM);
@@ -56,6 +57,7 @@ function get_auth($fi) {
 // 金融機関一覧を生成する
 function get_filist($fis) {
 	$ret = "";
+	
 	foreach($fis as $fi) $ret .= "<li><label for=\"" . $fi["fiid"] . "_hide\"><input type=\"checkbox\" name=\"" . $fi["fiid"] . "_hide\" id=\"" . $fi["fiid"] . "_hide\" onchange=\"self.document.getElementById(&quot;" . $fi["fiid"] . "&quot;).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); save_cookie_ofxform(); self.document.getElementById(&quot;" . $fi["fiid"] . "_hide&quot;).focus();\" />" . $fi["name"] . "</label></li>\r\n";
 	
 	return $ret;
