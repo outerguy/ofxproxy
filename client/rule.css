@@ -86,9 +86,6 @@ form.ofxform div.ofximage {
 form.ofxform div.ofximage input {
 	cursor: pointer;
 }
-form.ofxform div.ofximage a img {
-	border: 0px;
-}
 a img {
 	border: 0px;
 }
