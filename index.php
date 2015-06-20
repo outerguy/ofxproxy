@@ -46,7 +46,7 @@ if($fiid != "" && array_search($fiid, array_keys($fis)) !== false) {
 	// ヘルプを要求されている場合、ヘルプHTMLを生成する
 	$str .= "<h2 id=\"" . $fis[$fiid]["fiid"] . "\">" . $fis[$fiid]["name"] . "</h2>\r\n";
 	$str .= $fis[$fiid]["help"];
-	$str .= "<p><input type=\"button\" value=\"閉じる\" onclick=\"javascript: self.window.close(); return false;\" onkeypress=\"this.click();\" /></p>\r\n";
+	$str .= "<p><input type=\"button\" value=\"閉じる\" onclick=\"javascript: self.window.close();\" onkeypress=\"this.onclick(); return false;\" /></p>\r\n";
 } else {
 	// デバッグ機能が有効の場合、デバッグHTMLを取得する
 	if(ENV_BOOL_DEBUG == true) $str .= file_get_contents(ENV_FILE_DIR_CLIENT . ENV_FILE_TEMPLATE_DEBUG);
