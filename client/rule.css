@@ -4,9 +4,9 @@
 body {
 	width: 720px;
 	margin: 20px;
-	cursor: default;
 	color: #000000;
 	background: #FFFFFF;
+	cursor: default;
 }
 h1 {
 	margin: 0px;
@@ -14,9 +14,9 @@ h1 {
 	background: transparent;
 }
 h2 {
-	margin: 1em 0px 0px 0px;
 	border: solid #993300;
 	border-width: 0px 0px 2px 0px;
+	margin: 1em 0px 0px 0px;
 	color: #993300;
 	background: transparent;
 }
