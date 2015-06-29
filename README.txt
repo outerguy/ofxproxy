@@ -5,7 +5,7 @@ OFXProxyは、対応金融機関の口座情報をOFXファイルとしてダウ
 OFXProxyを実行するには、PHPバージョン5.4以降が必要です。
 
 ソースコード（GitHub）
-https://github.com/outerguy/ofxproxy/
+https://github.com/outerguy/ofxproxy
 
 プロジェクトサイト（Beatrek）
 http://www.beatrek.com/home/ofxproxy.htm

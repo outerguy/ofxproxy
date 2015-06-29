@@ -36,7 +36,7 @@ function fnc_load() {
 	cdf.appendChild(tag_h2);
 	
 	tag_p = dom_create_tag("p", { "style": "margin-top: 8px; line-height: 32px; font-weight: bold;" });
-	tag_a = dom_create_tag("a", { "href": "https://github.com/outerguy/ofxproxy/", "target": "_blank", "style": "margin-right: 0.5em;" });
+	tag_a = dom_create_tag("a", { "href": "https://github.com/outerguy/ofxproxy", "target": "_blank", "style": "margin-right: 0.5em;" });
 	tag_a.appendChild(dom_create_text(title));
 	tag_p.appendChild(tag_a);
 	tag_p.appendChild(dom_create_text("Version " + ver));
