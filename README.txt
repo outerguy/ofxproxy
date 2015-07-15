@@ -9,7 +9,3 @@ https://github.com/outerguy/ofxproxy
 
 プロジェクトサイト（Beatrek）
 http://www.beatrek.com/home/ofxproxy.htm
-
-Beatrek OFX仕様書（Beatrek）
-http://www.beatrek.com/home/ofxspec.htm
-
