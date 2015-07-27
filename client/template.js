@@ -12,10 +12,8 @@ var family = "<!--[family]-->";
 var flag_ofxform = false;
 
 (function() {
-	with(self.document) {
-		// 起動時にロード機能を呼び出す
-		body.onload = fnc_load;
-	}
+	// 起動時にロード機能を呼び出す
+	self.document.body.onload = fnc_load;
 })();
 
 
