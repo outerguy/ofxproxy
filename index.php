@@ -44,8 +44,9 @@ $str = "";
 
 if($fiid != "" && array_search($fiid, array_keys($fis)) !== false) {
 	// ヘルプを要求されている場合、ヘルプHTMLを生成する
-	$str .= "<h2 id=\"" . $fis[$fiid]["fiid"] . "\">" . $fis[$fiid]["name"] . "</h2>\r\n";
-	$str .= $fis[$fiid]["help"];
+	$str .= "<h2>ヘルプ</h2>\r\n";
+	$str .= "<h3 id=\"" . $fis[$fiid]["fiid"] . "\">" . $fis[$fiid]["name"] . "</h3>\r\n";
+	$str .= str_replace("h3", "h4", $fis[$fiid]["help"]);
 	$str .= "<p><input type=\"button\" value=\"閉じる\" onclick=\"javascript: self.window.close();\" onkeypress=\"this.onclick(); return false;\" /></p>\r\n";
 } else {
 	// デバッグ機能が有効の場合、デバッグHTMLを取得する
