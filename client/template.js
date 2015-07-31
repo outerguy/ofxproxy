@@ -27,11 +27,8 @@ function fnc_load() {
 	var cdf = document.createDocumentFragment();
 	var tag_body = dom_get_tag("body")[0];
 	var title = dom_get_tag("title")[0].firstChild.nodeValue;
-	var tag_h2, tag_p, tag_a;
-	
-	tag_h2 = dom_create_tag("h2", { "id": "version" });
-	tag_h2.appendChild(dom_create_text("バージョン情報"));
-	cdf.appendChild(tag_h2);
+	var tag_div = dom_get_id("ver");
+	var tag_p, tag_a;
 	
 	tag_p = dom_create_tag("p", { "style": "margin-top: 8px; line-height: 32px; font-weight: bold;" });
 	tag_a = dom_create_tag("a", { "href": "https://github.com/outerguy/ofxproxy", "target": "_blank", "style": "margin-right: 0.5em;" });
@@ -48,7 +45,10 @@ function fnc_load() {
 	tag_p.appendChild(dom_create_text("Portions Copyright &copy; 2012-2015 Hiromu2000. All rights reserved."));
 	cdf.appendChild(tag_p);
 	
-	tag_body.appendChild(cdf);
+	with(tag_div) {
+		while(hasChildNodes() == true) removeChild(lastChild);
+		appendChild(cdf);
+	}
 	
 	// Cookieを読み込む
 	load_cookie_ofxform();
