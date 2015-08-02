@@ -38,11 +38,11 @@ function fnc_load() {
 	cdf.appendChild(tag_p);
 	
 	tag_p = dom_create_tag("p");
-	tag_p.appendChild(dom_create_text("Copyright &copy; 2008-2015 OFFICE OUTERGUY. All rights reserved."));
+	tag_p.appendChild(dom_create_text("Copyright (C) 2008-2015 OFFICE OUTERGUY. All rights reserved."));
 	cdf.appendChild(tag_p);
 	
 	tag_p = dom_create_tag("p");
-	tag_p.appendChild(dom_create_text("Portions Copyright &copy; 2012-2015 Hiromu2000. All rights reserved."));
+	tag_p.appendChild(dom_create_text("Portions Copyright (C) 2012-2015 Hiromu2000. All rights reserved."));
 	cdf.appendChild(tag_p);
 	
 	with(tag_div) {
@@ -187,16 +187,17 @@ function dom_create_tag(name, attrs) {
 function dom_convert_escape(str) {
 	var ret = "";
 	var buf = "";
+	var hcs = { "amp": "&", "quot": "\"", "lt": "<", "gt": ">" };
 	var fnc;
 	var i;
-	var hcs = { "amp": String.fromCharCode(0x26), "quot": String.fromCharCode(0x22), "lt": String.fromCharCode(0x3C), "gt": String.fromCharCode(0x3E), "nbsp": String.fromCharCode(0xA0), "copy": String.fromCharCode(0xA9), "reg": String.fromCharCode(0xAE) };
 	
-	if(str.indexOf(String.fromCharCode(0x26)) == -1) {
+	if(str.indexOf(hcs["amp"]) == -1) {
 		ret = str;
 	} else {
 		fnc = function() {
 			return hcs[arguments[1]];
 		};
+		
 		for(i in hcs) buf += "|" + i;
 		ret = str.replace(new RegExp(hcs["amp"] + "(" + buf.substring(1) + ");", "g"), fnc);
 	}
