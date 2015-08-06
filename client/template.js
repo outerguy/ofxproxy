@@ -45,7 +45,7 @@ function fnc_load() {
 	tag_p.appendChild(dom_create_text("Portions Copyright (C) 2012-2015 Hiromu2000. All rights reserved."));
 	cdf.appendChild(tag_p);
 	
-	with(tag_div) {
+	if(tag_div != null) with(tag_div) {
 		while(hasChildNodes() == true) removeChild(lastChild);
 		appendChild(cdf);
 	}
