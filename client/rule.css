@@ -64,7 +64,7 @@ form.ofxform dt {
 	text-align: left;
 }
 form.ofxform dt:after {
-	content: " :";
+	content: ":";
 }
 form.ofxform dd {
 	margin-left: 160px;
