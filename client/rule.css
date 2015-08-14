@@ -3,6 +3,8 @@
 }
 body {
 	width: 720px;
+	border: 0px;
+	padding: 0px;
 	margin: 20px;
 	color: #000000;
 	background: #FFFFFF;
