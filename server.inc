@@ -700,7 +700,7 @@ function generate_html($settings, $resp) {
 		break;
 	}
 	
-	return str_replace("<!--[content]-->", trim(str_replace(array("<!--[addr]-->", "<!--[fiid]-->", "<!--[name]-->", "<!--[home]-->", "<!--[sid]-->", "<!--[aid]-->", "<!--[sesscookie]-->", "<!--[accesskey]-->", "<!--[additional]-->", "<!--[body]-->", "<!--[attr]-->", "<!--[text]-->"), array($_SERVER["REQUEST_URI"], $settings["fiid"], $settings["name"], $settings["home"], $resp["sid"], $resp["aid"], $resp["sesscookie"], $resp["accesskey"], ($type == "image"? "<img src=\"" . $resp["additional"] . "\" alt=\"画像\" />": htmlspecialchars($resp["additional"], ENT_COMPAT | ENT_HTML401, "UTF-8")), htmlspecialchars($resp["body"], ENT_COMPAT | ENT_HTML401, "UTF-8"), $attr, $text), $str)), $html);
+	return str_replace("<!--[content]-->", trim(str_replace(array("<!--[addr]-->", "<!--[fiid]-->", "<!--[name]-->", "<!--[home]-->", "<!--[sid]-->", "<!--[aid]-->", "<!--[sesscookie]-->", "<!--[accesskey]-->", "<!--[additional]-->", "<!--[body]-->", "<!--[attr]-->", "<!--[text]-->"), array($_SERVER["REQUEST_URI"], $settings["fiid"], $settings["name"], $settings["home"], $resp["sid"], $resp["aid"], $resp["sesscookie"], $resp["accesskey"], ($type == "image"? "<img src=\"" . $resp["additional"] . "\" alt=\"画像\" />": htmlspecialchars($resp["additional"], ENT_COMPAT | ENT_HTML401, "UTF-8")), preg_replace("/[\r\n]+/", "<br />\r\n", htmlspecialchars($resp["body"], ENT_COMPAT | ENT_HTML401, "UTF-8")), $attr, $text), $str)), $html);
 }
 
 ?>
