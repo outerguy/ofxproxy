@@ -46,6 +46,12 @@ p {
 	color: #666666;
 	background: #FFFFFF;
 }
+code {
+	color: #333333;
+	background: transparent;
+	font-family: monospace;
+	line-height: 110%;
+}
 form.ofxform {
 	border: solid 2px #FF9900;
 	border-radius: 0px 0px 10px 10px;
