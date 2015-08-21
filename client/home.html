@@ -23,7 +23,7 @@
 </noscript>
 <form action="javascript: void(0);">
 <ul>
-<li><label for="all_hide"><input type="checkbox" name="all_hide" id="all_hide" onchange="var inputs = self.document.getElementsByTagName(&quot;input&quot;); var i; for(i in inputs) if(inputs[i].type == &quot;checkbox&quot; &amp;&amp; inputs[i].id != &quot;all_hide&quot;) { inputs[i].checked = this.checked; self.document.getElementById(inputs[i].id.replace(&quot;_hide&quot;, &quot;&quot;)).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); } save_cookie_ofxform(); self.location.href = &quot;#setting&quot;" /><strong>すべて選択/解除</strong></label></li>
+<li><label for="all_hide"><input type="checkbox" name="all_hide" id="all_hide" onchange="var inputs = self.document.getElementsByTagName(&quot;input&quot;); var i; for(i in inputs) if(inputs[i].type == &quot;checkbox&quot; &amp;&amp; inputs[i].id != &quot;all_hide&quot;) { inputs[i].checked = this.checked; self.document.getElementById(inputs[i].id.replace(&quot;_hide&quot;, &quot;&quot;)).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); } save_cookie_ofxform(); self.window.scrollTo(0, self.document.getElementById(&quot;setting&quot;).offsetTop);" /><strong>すべて選択/解除</strong></label></li>
 <!--[filist]-->
 </ul>
 </form>
