@@ -58,7 +58,7 @@ function get_auth($fi) {
 function get_filist($fis) {
 	$ret = "";
 	
-	foreach($fis as $fi) $ret .= "<li><label for=\"" . $fi["fiid"] . "_hide\"><input type=\"checkbox\" name=\"" . $fi["fiid"] . "_hide\" id=\"" . $fi["fiid"] . "_hide\" onchange=\"self.document.getElementById(&quot;" . $fi["fiid"] . "&quot;).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); save_cookie_ofxform(); self.window.scrollTo(0, self.document.getElementById(&quot;setting&quot;).offsetTop);\" />" . $fi["name"] . "</label></li>\r\n";
+	foreach($fis as $fi) $ret .= "<li><label for=\"" . $fi["fiid"] . "_hide\"><input type=\"checkbox\" name=\"" . $fi["fiid"] . "_hide\" id=\"" . $fi["fiid"] . "_hide\" onchange=\"dom_get_id(&quot;" . $fi["fiid"] . "&quot;).style.display = (this.checked == true? &quot;none&quot;: &quot;block&quot;); save_cookie_ofxform(); self.window.scrollTo(0, dom_get_id(&quot;setting&quot;).offsetTop);\" />" . $fi["name"] . "</label></li>\r\n";
 	
 	return $ret;
 }
