@@ -23,9 +23,10 @@
 </noscript>
 <form method="post" action="./server.php?fiid=hide" onsubmit="return false;">
 <ul>
-<li><label for="all_hide"><input type="checkbox" name="all_hide" id="all_hide" onchange="var inputs = dom_get_tag(&quot;input&quot;); var i; for(i in inputs) with(inputs[i]) if(type == &quot;checkbox&quot; &amp;&amp; id != &quot;all_hide&quot;) { checked = this.checked; onchange(); } save_cookie_ofxform(); self.window.scrollTo(0, dom_get_id(&quot;setting&quot;).offsetTop);" /><strong>すべて選択/解除</strong></label></li>
+<li><label for="all_hide"><input type="checkbox" name="all_hide" id="all_hide" onchange="var inputs = dom_get_tag(&quot;input&quot;); var i; for(i in inputs) with(inputs[i]) if(type == &quot;checkbox&quot; &amp;&amp; id != &quot;all_hide&quot;) checked = this.checked;" /><strong>すべて選択/解除</strong></label></li>
 <!--[filist]-->
 </ul>
+<p><input type="button" value="設定を保存する" onclick="save_cookie_ofxform(); self.location.reload(false);" onkeypress="this.onclick(); return false;" /></p>
 </form>
 <h2 id="version">バージョン情報</h2>
 <div id="ver">

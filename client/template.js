@@ -14,6 +14,10 @@ var flag_ofxform = false;
 (function() {
 	// 起動時にロード機能を呼び出す
 	self.document.body.onload = fnc_load;
+	
+	// Cookieを読み込む
+	load_cookie_ofxform();
+	
 })();
 
 
@@ -49,12 +53,6 @@ function fnc_load() {
 		while(hasChildNodes() == true) removeChild(lastChild);
 		appendChild(cdf);
 	}
-	
-	// Cookieを読み込む
-	load_cookie_ofxform();
-	
-	// Cookieを書き込む
-	save_cookie_ofxform();
 	
 	return;
 }
