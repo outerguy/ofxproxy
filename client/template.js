@@ -18,6 +18,9 @@ var flag_ofxform = false;
 	// Cookieを読み込む
 	load_cookie_ofxform();
 	
+	// Cookieを書き込む
+	save_cookie_ofxform();
+	
 })();
 
 
@@ -108,7 +111,7 @@ function save_cookie_ofxform() {
 	var expire = new Date();
 	var i;
 	
-	expire.setTime(expire.getTime() + 86400 * 60);
+	expire.setTime(expire.getTime() + 86400000 * 60);
 	
 	for(i in tag_inputs) with(tag_inputs[i]) if(typeof type != "undefined" && type == "checkbox" && id != "all_hide") {
 		self.document.cookie = id.replace("_hide", "") + "=" + (checked == true? "none": "block") + "; expires=" + expire.toUTCString();
