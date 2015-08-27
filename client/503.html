@@ -3,8 +3,8 @@
 <p><a href="<!--[home]-->" class="ofxlink" onclick="return link_ofxform(this);" onkeypress="this.onclick();"><!--[name]--></a>のシステムメンテナンスが終了した後、再試行してください。</p>
 
 <form method="post" action="<!--[addr]-->" onsubmit="return false;">
-<p><input type="button" value="戻る" onclick="javascript: self.window.history.go(-1);" onkeypress="this.onclick(); return false;" /></p>
-<p><input type="button" value="追加情報" onclick="javascript: self.document.getElementById(&quot;addmsg&quot;).style.display = &quot;block&quot;; this.style.display=&quot;none&quot;;" onkeypress="this.onclick(); return false;" /></p>
+<p><input type="button" value="戻る" onclick="self.window.history.go(-1);" onkeypress="this.onclick(); return false;" /></p>
+<p><input type="button" value="追加情報" onclick="self.document.getElementById(&quot;addmsg&quot;).style.display = &quot;block&quot;; this.style.display=&quot;none&quot;;" onkeypress="this.onclick(); return false;" /></p>
 </form>
 
 <div id="addmsg" style="display: none;">
