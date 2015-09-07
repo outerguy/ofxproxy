@@ -13,7 +13,13 @@ var flag_ofxform = false;
 
 (function() {
 	// 起動時にロード機能を呼び出す
-	self.document.body.onload = fnc_load;
+	with(self.window) if(addEventListener) {
+		addEventListener("load", fnc_load, true);
+	} else if(attachEvent) {
+		attachEvent("onload", fnc_load);
+	} else {
+		onload = fnc_load;
+	}
 	
 	// Cookieを読み込む
 	load_cookie_ofxform();
