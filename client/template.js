@@ -43,8 +43,8 @@ function fnc_load() {
 	var tag_div = dom_get_id("ver");
 	var tag_p, tag_a;
 	
-	tag_p = dom_create_tag("p", { "style": "margin-top: 8px; line-height: 32px; font-weight: bold;" });
-	tag_a = dom_create_tag("a", { "href": "https://github.com/outerguy/ofxproxy", "target": "_blank", "style": "margin-right: 0.5em;" });
+	tag_p = dom_create_tag("p", { "class": "product" });
+	tag_a = dom_create_tag("a", { "href": "https://github.com/outerguy/ofxproxy", "target": "_blank" });
 	tag_a.appendChild(dom_create_text(title));
 	tag_p.appendChild(tag_a);
 	tag_p.appendChild(dom_create_text("Version " + ver));

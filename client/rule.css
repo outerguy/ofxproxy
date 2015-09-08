@@ -44,6 +44,17 @@ h4 {
 p {
 	margin: 0px;
 }
+p.product {
+	border: 0px;
+	padding: 0px;
+	margin: 8px 0px 0px 0px;
+	font-weight: bold;
+}
+p.product a {
+	border: 0px;
+	padding: 0px;
+	margin: 0px 8px 0px 0px;
+}
 code {
 	color: #333333;
 	background: transparent;
