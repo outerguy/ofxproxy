@@ -44,6 +44,13 @@ h4 {
 p {
 	margin: 0px;
 }
+p#debug {
+	border: 0px;
+	padding: 0.5em;
+	margin: 0px;
+	color: #FFFFFF;
+	background: #FF0000;
+}
 p#wsofx {
 	float: right;
 	clear: right;
