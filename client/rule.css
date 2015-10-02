@@ -50,6 +50,7 @@ p#debug {
 	margin: 0px;
 	color: #FFFFFF;
 	background: #FF0000;
+	font-weight: bold;
 }
 p#wsofx {
 	float: right;
