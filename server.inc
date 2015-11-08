@@ -112,49 +112,74 @@ function mb_convert_string($str) {
 
 class ofxDOM {
 	private $dom;
-	private $banktranlist;
+	private $acctfrom;
+	private $tranlist;
 	private $stmtrs;
 	
 	// XML DOMツリーを作成する
-	// $ofxdom = new ofxDOM();
-	// アカウントＩＤを指定する場合
-	// $ofxdom = new ofxDOM($acctid);
-	public function __construct() {
+	// $ofxdom = new ofxDOM("CREDITCARD");
+	public function __construct($type="CREDITCARD") {
 		$this->dom = new DOMDocument('1.0', 'UTF-8');
 		$dom = $this->dom;
-		$msg = $dom->appendChild($dom->createElement('CREDITCARDMSGSRSV1'));
-		$stmttrnrs = $msg->appendChild($dom->createElement('CCSTMTTRNRS'));
-		$node = $stmttrnrs->appendChild($dom->createElement('TRNUID'));
-		$node->appendChild($dom->createTextNode('0'));
-		$status = $stmttrnrs->appendChild($dom->createElement('STATUS'));
-		$node = $status->appendChild($dom->createElement('CODE'));
-		$node->appendChild($dom->createTextNode('0'));
-		$node = $status->appendChild($dom->createElement('SEVERITY'));
-		$node->appendChild($dom->createTextNode('INFO'));
-		$stmtrs = $stmttrnrs->appendChild($dom->createElement('CCSTMTRS'));
-		$this->stmtrs = $stmtrs;
-		$node = $stmtrs->appendChild($dom->createElement('CURDEF'));
-		$node->appendChild($dom->createTextNode(ENV_STR_OFX_CURRENCY_JPY));
-		$acctfrom = $stmtrs->appendChild($dom->createElement('CCACCTFROM'));
-		// ACCTIDを書き込む 
-		$node = $acctfrom->appendChild($dom->createElement('ACCTID'));
-		$arg = func_get_args();
-		if(func_num_args() == 1) {
-			$node->appendChild($dom->createTextNode($arg[0])); 
-		} else {
-			$node->appendChild($dom->createTextNode("0000"));
+		switch($type) {
+			case "CREDITCARD":
+				$msg = $dom->appendChild($dom->createElement('CREDITCARDMSGSRSV1'));
+				$stmttrnrs = $msg->appendChild($dom->createElement('CCSTMTTRNRS'));
+				$node = $stmttrnrs->appendChild($dom->createElement('TRNUID'));
+					$node->appendChild($dom->createTextNode('0'));
+				$status = $stmttrnrs->appendChild($dom->createElement('STATUS'));
+				$node = $status->appendChild($dom->createElement('CODE'));
+					$node->appendChild($dom->createTextNode('0'));
+				$node = $status->appendChild($dom->createElement('SEVERITY'));
+					$node->appendChild($dom->createTextNode('INFO'));
+				$stmtrs = $stmttrnrs->appendChild($dom->createElement('CCSTMTRS'));
+
+				$this->stmtrs = $stmtrs;
+				$node = $stmtrs->appendChild($dom->createElement('CURDEF'));
+				$node->appendChild($dom->createTextNode(ENV_STR_OFX_CURRENCY_JPY));
+				$this->acctfrom = $stmtrs->appendChild($dom->createElement('CCACCTFROM'));
+				$this->tranlist = $stmtrs->appendChild($dom->createElement('BANKTRANLIST'));
+				break;
+			case "INVSTMT":
+			    // 未実装
+			    break;
+			// 銀行、前払式帳票（電子マネー）
+			default:
+				$msg = $dom->appendChild($dom->createElement('BANKMSGSRSV1'));
+				$stmttrnrs = $msg->appendChild($dom->createElement('STMTTRNRS'));
+				$node = $stmttrnrs->appendChild($dom->createElement('TRNUID'));
+					$node->appendChild($dom->createTextNode('0'));
+				$status = $stmttrnrs->appendChild($dom->createElement('STATUS'));
+				$node = $status->appendChild($dom->createElement('CODE'));
+					$node->appendChild($dom->createTextNode('0'));
+				$node = $status->appendChild($dom->createElement('SEVERITY'));
+					$node->appendChild($dom->createTextNode('INFO'));
+				$stmtrs = $stmttrnrs->appendChild($dom->createElement('STMTRS'));
+
+				$this->stmtrs = $stmtrs;
+				$node = $stmtrs->appendChild($dom->createElement('CURDEF'));
+				$node->appendChild($dom->createTextNode(ENV_STR_OFX_CURRENCY_JPY));
+				$this->acctfrom = $stmtrs->appendChild($dom->createElement('BANKACCTFROM'));
+				$this->tranlist = $stmtrs->appendChild($dom->createElement('BANKTRANLIST'));
+				break;
 		}
-		
-		$this->banktranlist = $stmtrs->appendChild($dom->createElement('BANKTRANLIST'));
+	}
+
+	// 口座情報
+	public function setAcctfrom($array) {
+		foreach($array as $key => $value) {
+			$node = $this->acctfrom->appendChild($this->dom->createElement($key));
+				$node->appendChild($this->dom->createTextNode($value));
+		}
 	}
 	
 	// 明細を書き込む
 	public function setTrans($cds) {
 		$acctid = $this->dom->getElementsByTagName('ACCTID')->item(0)->nodeValue;
 		$dom = $this->dom;
-		$banktranlist = $this->banktranlist;
+		$tranlist = $this->tranlist;
 		foreach($cds as $cd) {
-			$stmttrn = $banktranlist->appendChild($dom->createElement('STMTTRN'));
+			$stmttrn = $tranlist->appendChild($dom->createElement('STMTTRN'));
 			
 			$node = $stmttrn->appendChild($dom->createElement('TRNTYPE'));
 			$node->appendChild($dom->createTextNode($cd["TRNTYPE"]));
@@ -177,13 +202,13 @@ class ofxDOM {
 		return $this->dom->getElementsByTagName('STMTTRN');
 	}
 	
-	public function setBankTranList($cds_s, $cds_e) {
+	public function setTranList($cds_s, $cds_e) {
 		$dom = $this->dom;
-		$banktranlist = $this->banktranlist;
-		$node = $banktranlist->insertBefore($dom->createElement('DTEND'), $banktranlist->firstChild);
+		$tranlist = $this->tranlist;
+		$node = $tranlist->insertBefore($dom->createElement('DTEND'), $tranlist->firstChild);
 		$node->appendChild($dom->createTextNode($cds_e));
 		
-		$node = $banktranlist->insertBefore($dom->createElement('DTSTART'), $banktranlist->firstChild);
+		$node = $tranlist->insertBefore($dom->createElement('DTSTART'), $tranlist->firstChild);
 		$node->appendChild($dom->createTextNode($cds_s));
 	}
 	public function setLedgerBalance($ledge_balamt, $dtasof) {
@@ -212,7 +237,8 @@ class ofxDOM {
 			$dtposted = substr($dtposted, 0, 8);
 			if ($dtposted == $last_dtposted) $cd_num++; else $cd_num = 0;
 			$fitid = $tran->getElementsByTagName('FITID')->item(0);
-			$fitid->nodeValue = sprintf("%s%s%s%05d", $dtposted, $acctid, $fitid->nodeValue, $cd_num);
+            // 口座種目は必要ないため、当面0000とする
+			$fitid->nodeValue = sprintf("%s0000%s%05d", $dtposted, $fitid->nodeValue, $cd_num);
 			$last_dtposted = $dtposted;
 		}
 	}
@@ -222,7 +248,10 @@ class ofxDOM {
 		$this->dom->formatOutput = true;
 		$xml = $this->dom->saveXML();
 		// XMLのヘッダは削除
-		return substr($xml, strpos($xml, '?>') + 2);
+		$xml = substr($xml, strpos($xml, '?>') + 2);
+		// 改行コードをCRLFに変換する
+		$xml = str_replace("\n", "\r\n", $xml);
+		return $xml;
 	}
 }
 
