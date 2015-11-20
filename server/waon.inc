@@ -109,7 +109,10 @@ if (strpos($body, "未実装") !== false) {
     });
     $ofxdom->setTrans($cds);
     // TRANLIST
-    $ofxdom->setTranList($cds[0]["DTPOSTED"] . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+    $ofxdom->setTranList(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+
+    // 残高を処理。ただし、取得できないため、便宜上0円とする。
+    $ofxdom->setLedgerBalance(0, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
 
     //MKGTINFOを設定
     $ofxdom->setMktginfo($settings["name"]);
@@ -154,7 +157,10 @@ function waon_parsedom($str) {
         $row = $rows->item($i);
         $cols = $row->getElementsByTagName('td');
         // 日付を取得する
-        preg_match("/([0-9]{4})\/([0-9]{1,2})\/([0-9]{1,2})/", trim($cols->item(0)->nodeValue), $matches);
+        if (!preg_match("/([0-9]{4})\/([0-9]{1,2})\/([0-9]{1,2})/", trim($cols->item(0)->nodeValue), $matches)) {
+            // 当月に明細が存在しなければスキップ
+            break;
+        }
         $cd["DTPOSTED"] = sprintf("%d%02d%02d", $matches[1], $matches[2], $matches[3]);
 
         // トランザクション番号（請求月とデータ種別）を生成する
