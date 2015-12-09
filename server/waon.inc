@@ -107,7 +107,9 @@ if (strpos($body, "未実装") !== false) {
     usort($cds, function($a, $b) {
         return $a['DTPOSTED'] > $b['DTPOSTED'];
     });
-    $ofxdom->setTrans($cds);
+    foreach($cds as $cd) {
+        $ofxdom->addTran($cd);
+    }
     // TRANLIST
     $ofxdom->setTranList(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
 

@@ -197,15 +197,7 @@ class ofxDOM {
 		}
 	}
 	
-	// 明細を書き込む
-	// Deprecated. Use addTran instead.
-	public function setTrans($cds) {
-		foreach($cds as $cd) {
-			$this->addTran($cd);
-		}
-	}
-
-	// 明細を書き込む
+	// 明細を追記する
 	public function addTran($cd) {
 		if ($this->type == 'INVSTMT') {
 			$parent = $this->tranlist->addChild('INVBANKTRAN');

@@ -209,7 +209,9 @@ if(strpos($body, "現在サービス停止中") !== false || strpos($body, "シ�
     usort($cds, function($a, $b) {
         return $a['DTPOSTED'] > $b['DTPOSTED'];
     });
-    $ofxdom->setTrans($cds);
+    foreach($cds as $cd) {
+        $ofxdom->addTran($cd);
+    }
     
     $cds_s = "";
     $cds_e = "";

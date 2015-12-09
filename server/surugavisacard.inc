@@ -110,7 +110,9 @@ if(strpos($body, "只今メンテナンス中です") !== false) {
     usort($cds, function($a, $b) {
         return $a['DTPOSTED'] > $b['DTPOSTED'];
     });
-    $ofxdom->setTrans($cds);
+    foreach($cds as $cd) {
+        $ofxdom->addTran($cd);
+    }
     $cds_balamt = 0;
     $cds_s = "";
     $cds_e = "";
