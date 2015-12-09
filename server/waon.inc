@@ -96,7 +96,7 @@ if (strpos($body, "未実装") !== false) {
     list($head, $body) = waon_http11('POST', $uris, $query, $cookie);
 
     // DOMツリーを生成
-    $ofxdom = new ofxDOM("BANK");
+    $ofxdom = new ofxDOM("BANK", $settings["name"]);
     $ofxdom->setAcctfrom(array(
         "BANKID" => $settings["code"],
         "BRANCHID" => "0",
@@ -114,9 +114,8 @@ if (strpos($body, "未実装") !== false) {
     // 残高を処理。ただし、取得できないため、便宜上0円とする。
     $ofxdom->setLedgerBalance(0, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
 
-    //MKGTINFOを設定
-    $ofxdom->setMktginfo($settings["name"]);
-
+    // FITIDを仕上げる
+    $ofxdom->setFitid();
     // XML DOMツリーを文字列に変換
     $xml = $ofxdom->getXML();
     $resp["status"] = ENV_NUM_STATUS_SUCCESS;

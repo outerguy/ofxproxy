@@ -317,6 +317,8 @@ foreach ($rows as $row) {
     $ofxdom->addSec($cl);
 }
 
+// FITIDを仕上げる
+$ofxdom->setFitid();
 // XML DOMツリーを文字列に変換
 $xml = $ofxdom->getXML();
 $resp["status"] = ENV_NUM_STATUS_SUCCESS;

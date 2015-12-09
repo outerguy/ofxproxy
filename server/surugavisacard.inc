@@ -84,7 +84,7 @@ if(strpos($body, "只今メンテナンス中です") !== false) {
     $account['acctname'] = 'スルガ Visaデビット/クレジット';
     $account['acctid'] = substr($user, 12);
     // DOMツリーを生成
-    $ofxdom = new ofxDOM("CREDITCARD");
+    $ofxdom = new ofxDOM("CREDITCARD", $settings["name"]);
     $ofxdom->setAcctfrom(array("ACCTID" => $account["acctid"]));
     
     // メニューから「ご利用明細」を選択
@@ -131,9 +131,8 @@ if(strpos($body, "只今メンテナンス中です") !== false) {
     $cds_balamt = (-1)*$cds_balamt;
     $ofxdom->setLedgerBalance($cds_balamt, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
     
-    //MKGTINFOを設定
-    $ofxdom->setMktginfo($settings["name"]);
-    
+    // FITIDを仕上げる
+    $ofxdom->setFitid();
     // XML DOMツリーを文字列に変換
     $xml = $ofxdom->getXML();
     

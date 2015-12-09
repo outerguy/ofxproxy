@@ -195,7 +195,7 @@ if(strpos($body, "現在サービス停止中") !== false || strpos($body, "シ�
     }
     
     // DOMツリーを生成
-    $ofxdom = new ofxDOM("CREDITCARD");
+    $ofxdom = new ofxDOM("CREDITCARD", $account["acctname"]);
     $ofxdom->setAcctfrom(array("ACCTID" => $account["acctid"]));
     
     // 明細をパース
@@ -228,9 +228,8 @@ if(strpos($body, "現在サービス停止中") !== false || strpos($body, "シ�
     $account["ledge_balamt"] = parse_amount($account["ledge_balamt"]);
     $ofxdom->setLedgerBalance($account["ledge_balamt"], ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
     
-    //MKGTINFOを設定
-    $ofxdom->setMktginfo($account["acctname"]);
-    
+    // FITIDを仕上げる
+    $ofxdom->setFitid();
     // XML DOMツリーを文字列に変換
     $xml = $ofxdom->getXML();
     

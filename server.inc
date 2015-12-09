@@ -185,7 +185,9 @@ class ofxDOM {
 		}
 		$this->tranlist->addChild('DTSTART');
 		$this->tranlist->addChild('DTEND');
-		if ($mktginfo != "") $this->setMktginfo($mktginfo);
+		if ($mktginfo != "") {
+			$this->stmtrs->addChild('MKTGINFO', $mktginfo);
+		}
 	}
 
 	// 口座情報
@@ -301,11 +303,7 @@ class ofxDOM {
 	}
 
 	// Deprecated.
-	public function setMktginfo($mktginfo) {
-		$this->stmtrs->addChild('MKTGINFO', $mktginfo);
-	}
-
-	private function setFitid() {
+	public function setFitid() {
 		$acctid = $this->acctfrom->ACCTID;
 		$acctid = substr($acctid, strlen($acctid) - 4);
 		$cd_nums = array();
@@ -329,8 +327,6 @@ class ofxDOM {
 	}
 
 	public function getXML() {
-		// FITIDを仕上げる
-		$this->setFitid();
 		// Pretty-printのためだけにDOMDocumentを利用する
 		$dom = dom_import_simplexml($this->dom)->ownerDocument;
 		$dom->formatOutput = TRUE;
