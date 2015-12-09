@@ -208,9 +208,8 @@ class ofxDOM {
 		}
 		$stmttrn = $parent->addChild('STMTTRN');
 		$stmttrn->addChild('TRNTYPE', $cd["TRNTYPE"]);
-		$stmttrn->addChild('DTPOSTED', $cd["DTPOSTED"] . ENV_STR_OFX_TZ);
+		$stmttrn->addChild('DTPOSTED', $cd["DTPOSTED"]);
 		$stmttrn->addChild('TRNAMT', $cd["TRNAMT"]);
-		// この時点では、FITIDは請求月とデータ種別のみ
 		$stmttrn->addChild('FITID', $cd["FITID"]);
 		$stmttrn->addChild('NAME', $cd["NAME"]);
 	}

@@ -218,6 +218,7 @@ function surugavisa_parsedom($str) {
         // 日付を取得する
         preg_match("/([0-9]{4}).*?([0-9]{1,2}).*?([0-9]{1,2})/", str_replace(" ", "", $cols1->item(1)->nodeValue), $matches);
         $cd["DTPOSTED"] = sprintf("%d%02d%02d", $matches[1], $matches[2], $matches[3]);
+        $cd["DTPOSTED"] .= ENV_STR_OFX_TZ;
         
         // トランザクション番号（請求月とデータ種別）を生成する
         $cd["FITID"] = '000';

@@ -336,6 +336,7 @@ function mufgcard_parsedom($str) {
         
         // 日付を取得する
         $cd["DTPOSTED"] = parse_date(trim($cols->item(0)->nodeValue));
+        $cd["DTPOSTED"] .= ENV_STR_OFX_TZ;
         // トランザクション番号（請求月とデータ種別）を生成する
         $cd["FITID"] = sprintf("%02d0", $month);
         // 摘要を取得する

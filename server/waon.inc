@@ -166,6 +166,7 @@ function waon_parsedom($str) {
             break;
         }
         $cd["DTPOSTED"] = sprintf("%d%02d%02d", $matches[1], $matches[2], $matches[3]);
+        $cd["DTPOSTED"] .= ENV_STR_OFX_TZ;
 
         // トランザクション番号（請求月とデータ種別）を生成する
         $cd["FITID"] = '000';

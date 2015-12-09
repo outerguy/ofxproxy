@@ -170,6 +170,7 @@ foreach ($rows as $row) {
     $cd = array();
     $date = date_parse($row[0]);
     $cd['DTPOSTED'] = sprintf("%d%02d%02d", $date['year'], $date['month'], $date['day']);
+    $cd['DTPOSTED'] .= ENV_STR_OFX_TZ;
     if (preg_match('/[0-9,]+/', $row[1]) > 0) { // 入金
         $cd['TRNAMT'] = $row[1];
     } else { // 出金
