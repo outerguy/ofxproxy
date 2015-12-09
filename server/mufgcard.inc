@@ -223,8 +223,8 @@ if(strpos($body, "現在サービス停止中") !== false || strpos($body, "シ�
         $cds_e = $dtposted;
     }
     
-    // TRANLIST
-    $ofxdom->setTranList($cds_s, $cds_e);
+    // DTSTARTとDTENDを設定する
+    $ofxdom->setDateRange($cds_s, $cds_e);
     
     // 残高を処理
     $account["ledge_balamt"] = parse_amount($account["ledge_balamt"]);

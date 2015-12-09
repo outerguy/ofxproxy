@@ -188,8 +188,8 @@ foreach ($rows as $row) {
     }
 }
 
-// TRANLIST
-$ofxdom->setTranList(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+// DTSTARTとDTENDを設定する
+$ofxdom->setDateRange(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
 
 // 取引履歴（国内株式）のCSVを処理する
 $body_trade_jp = mb_convert_encoding($body_trade_jp, "UTF-8", "sjis-win");

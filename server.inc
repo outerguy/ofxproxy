@@ -249,7 +249,7 @@ class ofxDOM {
 		return $this->tranlist->STMTTRN;
 	}
 	
-	public function setTranList($dtstart, $dtend) {
+	public function setDateRange($dtstart, $dtend) {
 		$this->tranlist->DTSTART = $dtstart;
 		$this->tranlist->DTEND = $dtend;
 	}

@@ -110,8 +110,8 @@ if (strpos($body, "未実装") !== false) {
     foreach($cds as $cd) {
         $ofxdom->addTran($cd);
     }
-    // TRANLIST
-    $ofxdom->setTranList(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+    // DTSTARTとDTENDを設定する
+    $ofxdom->setDateRange(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
 
     // 残高を処理。ただし、取得できないため、便宜上0円とする。
     $ofxdom->setBalance(array(

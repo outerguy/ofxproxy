@@ -126,8 +126,8 @@ if(strpos($body, "只今メンテナンス中です") !== false) {
         $cds_balamt += (double)$item->TRNAMT;
     }
     
-    // TRANLIST
-    $ofxdom->setTranList($cds_s, $cds_e);
+    // DTSTARTとDTENDを設定する
+    $ofxdom->setDateRange($cds_s, $cds_e);
     
     // 残高を処理
     $cds_balamt = (-1)*$cds_balamt;
