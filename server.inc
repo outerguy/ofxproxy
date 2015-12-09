@@ -282,12 +282,6 @@ class ofxDOM {
 		$secinfo->addChild('SECNAME', $cl['SECNAME']);
 	}
 
-	// Deprecated. Use setBalance instead.
-	public function setLedgerBalance($ledge_balamt, $dtasof) {
-		$this->balance->addChild('BALAMT', $ledge_balamt);
-		$this->balance->addChild('DTASOF', $dtasof);
-	}
-
 	public function setBalance($array) {
 		foreach($array as $key => $value) {
 			$this->balance->addChild($key, $value);

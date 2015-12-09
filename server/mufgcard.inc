@@ -228,7 +228,10 @@ if(strpos($body, "現在サービス停止中") !== false || strpos($body, "シ�
     
     // 残高を処理
     $account["ledge_balamt"] = parse_amount($account["ledge_balamt"]);
-    $ofxdom->setLedgerBalance($account["ledge_balamt"], ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+    $ofxdom->setBalance(array(
+        'BALAMT' => $account["ledge_balamt"],
+        'DTASOF' => ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ
+    ));
     
     // FITIDを仕上げる
     $ofxdom->setFitid();

@@ -114,7 +114,10 @@ if (strpos($body, "未実装") !== false) {
     $ofxdom->setTranList(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
 
     // 残高を処理。ただし、取得できないため、便宜上0円とする。
-    $ofxdom->setLedgerBalance(0, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+    $ofxdom->setBalance(array(
+        'BALAMT' => 0,
+        'DTASOF' => ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ
+    ));
 
     // FITIDを仕上げる
     $ofxdom->setFitid();

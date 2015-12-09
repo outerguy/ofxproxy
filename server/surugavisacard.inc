@@ -131,7 +131,10 @@ if(strpos($body, "只今メンテナンス中です") !== false) {
     
     // 残高を処理
     $cds_balamt = (-1)*$cds_balamt;
-    $ofxdom->setLedgerBalance($cds_balamt, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+    $ofxdom->setBalance(array(
+        'BALAMT' => $cds_balamt,
+        'DTASOF' => ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ
+    ));
     
     // FITIDを仕上げる
     $ofxdom->setFitid();
