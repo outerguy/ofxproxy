@@ -122,7 +122,7 @@ class ofxDOM {
 	
 	// XML DOMツリーを作成する
 	// $ofxdom = new ofxDOM("CREDITCARD");
-	public function __construct($type="CREDITCARD", $mktginfo="") {
+	public function __construct($type, $mktginfo="") {
 		$this->type = $type;
 		$this->dom = simplexml_load_string('<?xml version="1.0" encoding="UTF-8"?' . '><OFX/>');
 		switch($type) {
@@ -167,7 +167,7 @@ class ofxDOM {
 				$this->seclist = $msg->addChild('SECLIST');
 				break;
 			// 銀行、前払式帳票（電子マネー）
-			default:
+			case "BANK":
 				$msg = $this->dom->addChild('BANKMSGSRSV1');
 				$trnrs = $msg->addChild('STMTTRNRS');
 				$trnrs->addChild('TRNUID', '0');
@@ -182,12 +182,13 @@ class ofxDOM {
 				$this->tranlist = $stmtrs->addChild('BANKTRANLIST');
 				$this->balance = $stmtrs->addChild('LEDGERBAL');
 				break;
+			default:
+				throw new Exception('第1引数はCREDITCARD, INVSTMT, BANKのいずれか');
+				break;
 		}
 		$this->tranlist->addChild('DTSTART');
 		$this->tranlist->addChild('DTEND');
-		if ($mktginfo != "") {
-			$this->stmtrs->addChild('MKTGINFO', $mktginfo);
-		}
+		$this->stmtrs->addChild('MKTGINFO', $mktginfo);
 	}
 
 	// 口座情報
