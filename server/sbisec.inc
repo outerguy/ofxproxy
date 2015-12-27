@@ -489,6 +489,11 @@ if(strpos($body, "ログイン後の全てのサービスを停止") !== false) 
 		$cl["MKTVAL"] = (double)$investment[6];
 		$cl["MEMO"] = (string)((double)$investment[7]);
 		$cl["DTPRICEASOF"] = ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ;
+
+		$cl["PARVALUE"] = $cl["UNITPRICE"];
+		$cl["DEBTTYPE"] = (parse_amount($investment[8]) > 0? "COUPON": "ZERO");
+		$cl["COUPONRT"] = $investment[8];
+		$cl["DTMAT"] = $investment[9];
 		
 		switch($cl["CATEGORY"]) {
 		case ENV_STR_OFX_STOCK:
@@ -777,7 +782,7 @@ if(strpos($body, "ログイン後の全てのサービスを停止") !== false) 
 			
 			// トランザクション番号を生成する
 			$cd["FITID"] = $cd_dtposted . "0000000" . sprintf("%05d", $cd_num);
-			$cd["DTPOSTED"] = $cd_dtposted;
+			$cd["DTPOSTED"] = $cd_dtposted . ENV_STR_OFX_TZ;
 			
 			switch($line[1]) {
 			case ENV_STR_ASSET_CASH_DEPOSIT:
