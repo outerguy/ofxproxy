@@ -490,11 +490,6 @@ if(strpos($body, "ログイン後の全てのサービスを停止") !== false) 
 		$cl["MEMO"] = (string)((double)$investment[7]);
 		$cl["DTPRICEASOF"] = ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ;
 
-		$cl["PARVALUE"] = $cl["UNITPRICE"];
-		$cl["DEBTTYPE"] = (parse_amount($investment[8]) > 0? "COUPON": "ZERO");
-		$cl["COUPONRT"] = $investment[8];
-		$cl["DTMAT"] = $investment[9];
-		
 		switch($cl["CATEGORY"]) {
 		case ENV_STR_OFX_STOCK:
 			$cl["UNIQUEIDTYPE"] = ENV_STR_OFX_CODE_STOCK;
@@ -514,6 +509,11 @@ if(strpos($body, "ログイン後の全てのサービスを停止") !== false) 
 			break;
 		}
 		
+		$cl["PARVALUE"] = $cl["UNITPRICE"];
+		$cl["DEBTTYPE"] = (parse_amount($investment[8]) > 0? "COUPON": "ZERO");
+		$cl["COUPONRT"] = $investment[8];
+		$cl["DTMAT"] = $investment[9];
+
 		if($cl["CATEGORY"] != "") {
 			// INVPOSLIST
 			$ofxdom->addPos($cl);
