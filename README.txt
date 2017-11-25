@@ -8,8 +8,8 @@ OFXProxyを実行するには、PHPバージョン5.4以降が必要です。
 https://github.com/outerguy/ofxproxy
 
 プロジェクトサイト（Beatrek）
-http://www.beatrek.com/home/ofxproxy.htm
+https://www.beatrek.com/home/ofxproxy.htm
 
 Beatrek OFX仕様書（Beatrek）
-http://www.beatrek.com/home/ofxspec.htm
+https://www.beatrek.com/home/ofxspec.htm
 
