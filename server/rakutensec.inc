@@ -9,6 +9,18 @@ Licensed under the GNU AGPLv3.
 $resp = array();
 $ofx = "";
 
+// DTSTARTとDTENDを設定する
+if (array_key_exists('DTSTART', $ofxforms)) {
+    $dtstart = $ofxforms['DTSTART'];
+} else {
+    $dtstart = ENV_STR_DATE_PASTDAY;
+}
+if (array_key_exists('DTEND', $ofxforms)) {
+    $dtend = $ofxforms['DTEND'];
+} else {
+    $dtend = ENV_STR_DATE_TODAY;
+}
+
 // 実行時間（タイムアウト）を再設定する
 @set_time_limit(ENV_NUM_TIMEOUT);
 
@@ -182,7 +194,7 @@ foreach ($rows as $row) {
     $cd["FITID"] = '000';
 
     // 入出力履歴をDOMに書き込む
-    if (strtotime(ENV_STR_DATE_PASTDAY) <= strtotime($row[0]) && strtotime($row[0]) <= strtotime(ENV_STR_DATE_TODAY)) {
+    if (strtotime($dtstart) <= strtotime($row[0]) && strtotime($row[0]) <= strtotime($dtend)) {
         $ofxdom->addTran($cd);
     } else {
         break;
@@ -190,7 +202,7 @@ foreach ($rows as $row) {
 }
 
 // DTSTARTとDTENDを設定する
-$ofxdom->setDateRange(ENV_STR_DATE_PASTDAY . ENV_STR_OFX_TZ, ENV_STR_DATE_TODAY . ENV_STR_OFX_TZ);
+$ofxdom->setDateRange($dtstart . ENV_STR_OFX_TZ, $dtend . ENV_STR_OFX_TZ);
 
 // 取引履歴（国内株式）のCSVを処理する
 $body_trade_jp = mb_convert_encoding($body_trade_jp, "UTF-8", "sjis-win");
@@ -222,7 +234,7 @@ foreach ($rows as $row) {
         $ct['UNITS'] *= -1;
     }
 
-    if (strtotime(ENV_STR_DATE_PASTDAY) <= strtotime($row[0]) && strtotime($row[0]) <= strtotime(ENV_STR_DATE_TODAY)) {
+    if (strtotime($dtstart) <= strtotime($row[0]) && strtotime($row[0]) <= strtotime($dtend)) {
         $ofxdom->addTrade($ct);
     }
 }
@@ -269,7 +281,7 @@ foreach ($rows as $row) {
             break;
     }
 
-    if (strtotime(ENV_STR_DATE_PASTDAY) <= strtotime($row[0]) && strtotime($row[0]) <= strtotime(ENV_STR_DATE_TODAY)) {
+    if (strtotime($dtstart) <= strtotime($row[0]) && strtotime($row[0]) <= strtotime($dtend)) {
         $ofxdom->addTrade($ct);
     }
 }
